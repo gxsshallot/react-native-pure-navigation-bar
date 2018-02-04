@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
+    "bundle:ios": "node ./node_modules/react-native/local-cli/cli.js bundle --platform ios --entry-file example.js --bundle-output ios/main.jsbundle --dev=false --verbose",
+    "lint": "eslint index.js example.js",
     "test": "jest"
   },
   "repository": {
@@ -24,8 +26,13 @@
   },
   "homepage": "https://github.com/gaoxiaosong/react-native-pure-navigation-bar#readme",
   "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.2.1",
     "babel-jest": "^22.1.0",
     "babel-preset-react-native": "^4.0.0",
+    "eslint": "^4.17.0",
+    "eslint-plugin-react": "^7.6.1",
+    "eslint-plugin-react-native": "^3.2.1",
     "jest": "^22.1.4",
     "react": "^16.2.0",
     "react-native": "^0.52.2",

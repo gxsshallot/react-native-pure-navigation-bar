@@ -2,7 +2,7 @@ import React from 'react';
 import {StyleSheet, Text, View, AppRegistry, TouchableOpacity} from 'react-native';
 import NaviBar, {GOBACK_BUTTON} from './index';
 
-class App extends React.Component {
+export class Example extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -27,7 +27,7 @@ class App extends React.Component {
                     {title}
                 </Text>
             </TouchableOpacity>
-        )
+        );
     };
 
     render() {
@@ -84,4 +84,4 @@ const styles = StyleSheet.create({
     },
 });
 
-AppRegistry.registerComponent('test', () => App);
+AppRegistry.registerComponent('test', () => Example);

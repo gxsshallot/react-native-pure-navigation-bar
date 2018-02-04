@@ -22,3 +22,5 @@ out/
 
 # node.js
 node_modules/
+yarn-error.log
+main.jsbundle*

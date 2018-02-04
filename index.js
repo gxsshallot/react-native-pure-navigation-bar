@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, TouchableOpacity, Image, Keyboard, Platform, StyleSheet, Dimensions} from 'react-native';
+import {View, Text, TouchableOpacity, Image, Keyboard, Platform, StyleSheet} from 'react-native';
 import {isIphoneX} from 'react-native-iphone-x-helper';
 import PropTypes from 'prop-types';
 
