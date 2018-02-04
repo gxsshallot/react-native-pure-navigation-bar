@@ -1,2 +1,24 @@
+# OSX
+.DS_Store
+
+# Xcode
+build/
+*.pbxuser
+!default.pbxuser
+xcuserdata
+*.xccheckout
+DerivedData
+project.xcworkspace
+
+# Android/IntelliJ
+build/
 .idea
-node_modules
+.gradle
+local.properties
+*.iml
+bin/
+gen/
+out/
+
+# node.js
+node_modules/

@@ -3,7 +3,10 @@
   "version": "0.0.1",
   "description": "A navigation bar in React-Native.",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "jest"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/gaoxiaosong/react-native-pure-navigation-bar.git"
@@ -21,10 +24,17 @@
   },
   "homepage": "https://github.com/gaoxiaosong/react-native-pure-navigation-bar#readme",
   "devDependencies": {
+    "babel-jest": "^22.1.0",
+    "babel-preset-react-native": "^4.0.0",
+    "jest": "^22.1.4",
     "react": "^16.2.0",
-    "react-native": "^0.52.2"
+    "react-native": "^0.52.2",
+    "react-test-renderer": "^16.2.0"
   },
   "dependencies": {
     "react-native-iphone-x-helper": "^1.0.2"
+  },
+  "jest": {
+    "preset": "react-native"
   }
 }

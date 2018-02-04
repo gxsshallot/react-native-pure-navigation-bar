@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, TouchableOpacity, Image, Keyboard, Platform, StyleSheet} from 'react-native';
+import {View, Text, TouchableOpacity, Image, Keyboard, Platform, StyleSheet, Dimensions} from 'react-native';
 import {isIphoneX} from 'react-native-iphone-x-helper';
 import PropTypes from 'prop-types';
 
@@ -69,17 +69,6 @@ const custom = {
     gobackFunc: null,
 };
 
-const gobackButton = (key, style, onPress) => {
-    return (
-        <TouchableOpacity onPress={onPress} style={[styles.gobackTouch, custom.style.gobackTouch, style]}>
-            <Image
-                source={custom.gobackImage}
-                style={[styles.gobackImage, custom.style.gobackImage]}
-            />
-        </TouchableOpacity>
-    );
-};
-
 /**
  * Navigation Bar.
  */
@@ -87,6 +76,7 @@ export default class NaviBar extends React.Component {
     static propTypes = {
         title: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
         titleCenter: PropTypes.bool,
+        hasSeperatorLine: PropTypes.bool,
         leftElement: PropTypes.oneOfType([
             PropTypes.string,
             PropTypes.arrayOf(PropTypes.string),
@@ -99,82 +89,116 @@ export default class NaviBar extends React.Component {
         ]),
         onLeft: PropTypes.func,
         onRight: PropTypes.func,
-        containerStyle: PropTypes.any,
-        titleStyle: PropTypes.any,
-        leftStyle: PropTypes.any,
-        rightStyle: PropTypes.any,
         autoCloseKeyboard: PropTypes.bool,
         navigation: PropTypes.object,
+        style: PropTypes.any,
     };
 
     static defaultProps = {
         title: '',
-        titleCenter: false,
+        titleCenter: true,
+        hasSeperatorLine: true,
         leftElement: GOBACK_BUTTON,
         rightElement: null,
         autoCloseKeyboard: true,
         navigation: null,
+        style: {},
+    };
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            Left: 0,
+            Right: 0,
+        };
+    }
+
+    _combineStyle = (key, innerStyle = undefined) => {
+        return [styles[key], innerStyle, custom.style[key], this.props.style[key]];
     };
 
     _clickButton = (clicktype, identifier) => {
+        // Dismiss Keyboard
         this.props.autoCloseKeyboard && Keyboard.dismiss();
+        // Goback Button, use global action or navigation's goBack
         if (identifier === GOBACK_BUTTON) {
             if (custom.gobackFunc) {
                 custom.gobackFunc();
             } else {
                 this.props.navigation && this.props.navigation.goBack();
             }
+        }
+        // General Button, use 'onLeft' or 'onRight' in this.props
+        else {
+            const clickKey = 'on' + clicktype;
+            this.props[clickKey] && this.props[clickKey](identifier);
+        }
+    };
+
+    _renderButton = (type, item, index) => {
+        const func = this._clickButton.bind(this, type, item);
+        const specStyle = {marginHorizontal: 5, ['margin' + type]: 0};
+        const buttonViewStyle = this._combineStyle('buttonView', specStyle);
+        if (item === GOBACK_BUTTON) {
+            return (
+                <TouchableOpacity key={index} onPress={func} style={this._combineStyle('gobackView', specStyle)}>
+                    <Image
+                        source={custom.gobackImage}
+                        style={[styles.gobackImage, custom.style.gobackImage]}
+                    />
+                </TouchableOpacity>
+            );
+        } else if (typeof item === 'string') {
+            return (
+                <TouchableOpacity key={index} onPress={func} style={buttonViewStyle}>
+                    <Text>
+                        {item}
+                    </Text>
+                </TouchableOpacity>
+            );
         } else {
-            this.props[clicktype] && this.props[clicktype](identifier);
+            return (
+                <View key={index} style={buttonViewStyle}>
+                    {item}
+                </View>
+            );
         }
     };
 
     _renderButtons = (type) => {
         const lowerType = type.toLowerCase();
-        const styleKey = lowerType + 'Style';
         const elementKey = lowerType + 'Element';
-        const style = this.props[styleKey];
         let element = this.props[elementKey];
         if (typeof element === 'string') {
             element = [element];
         }
+        let view, extra;
+        const viewStyleKey = lowerType + 'View';
         if (Array.isArray(element)) {
-            const touchStyleKey = lowerType + 'Touch';
-            return (
-                <View style={[styles[touchStyleKey], custom.style[touchStyleKey], style]}>
-                    {element.map((item, index) => {
-                        const buttonViewStyle = [styles.buttonView, custom.style.buttonView];
-                        const func = this._clickButton.bind(this, type, item);
-                        if (item === GOBACK_BUTTON) {
-                            return gobackButton(key, undefined, func);
-                        } else if (typeof item === 'string') {
-                            return (
-                                <TouchableOpacity onPress={func} style={buttonViewStyle}>
-                                    <Text>
-                                        {item}
-                                    </Text>
-                                </TouchableOpacity>
-                            );
-                        } else {
-                            return (
-                                <View key={index} style={buttonViewStyle}>
-                                    {item}
-                                </View>
-                            );
-                        }
-                    })}
-                </View>
-            );
+            if (type === 'Left') {
+                extra = element.length > 0 && element[0] === GOBACK_BUTTON ? 0 : 8;
+            } else {
+                extra = element.length > 0 && element[element.length - 1] === GOBACK_BUTTON ? 0 : 8;
+            }
+            view = element.map(this._renderButton.bind(this, type));
         } else {
-            return element;
+            view = element;
         }
+        return (
+            <View
+                onLayout={e => this.setState({[type]: e.nativeEvent.layout.width})}
+                style={this._combineStyle(viewStyleKey, {['padding' + type]: extra})}
+            >
+                {view}
+            </View>
+        );
     };
 
     _renderTitleView = () => {
-        const {title, titleStyle} = this.props;
+        const {title} = this.props;
         if (typeof title === 'string') {
             return (
-                <Text numberOfLines={1} style={[styles.title, titleStyle]}>
+                <Text numberOfLines={1} style={this._combineStyle('title')}>
                     {title}
                 </Text>
             );
@@ -184,16 +208,31 @@ export default class NaviBar extends React.Component {
     };
 
     render() {
-        const {containerStyle} = this.props;
+        const {titleCenter, hasSeperatorLine} = this.props;
+        const edge = Math.max(this.state.Left, this.state.Right) + 15;
+        const maxWidthCenterStyle = titleCenter
+            ? {left: edge, right: edge}
+            : {};
+        const seperatorLineStyle = hasSeperatorLine ? this._combineStyle('seperator') : {};
         return (
-            <View style={[styles.container, custom.style.container, containerStyle]}>
+            <View style={this._combineStyle('container', seperatorLineStyle)}>
                 {this._renderButtons('Left')}
-                {this._renderTitleView()}
+                {!titleCenter ? (
+                    <View style={this._combineStyle('titleContainer')}>
+                        {this._renderTitleView()}
+                    </View>
+                ) : (
+                    <View style={this._combineStyle('titleCenterContainer', maxWidthCenterStyle)}>
+                        {this._renderTitleView()}
+                    </View>
+                )}
                 {this._renderButtons('Right')}
             </View>
         );
     }
 }
+
+const minWidth = 30;
 
 const styles = StyleSheet.create({
     container: {
@@ -203,45 +242,60 @@ const styles = StyleSheet.create({
         paddingTop: STATUSBAR_HEIGHT,
         height: TOTALBAR_HEIGHT,
         backgroundColor: 'white',
+    },
+    seperator: {
         borderBottomWidth: StyleSheet.hairlineWidth,
         borderBottomColor: '#e6e6ea',
-        paddingLeft: 16,
-        paddingRight: 16,
     },
     title: {
-        flex: 1,
         fontSize: 18,
         color: '#394352',
         textAlign: 'center',
+        overflow: 'hidden',
+    },
+    titleContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    titleCenterContainer: {
+        position: 'absolute',
+        left: 0,
+        right: 0,
+        top: 0,
+        bottom: 0,
+        justifyContent: 'center',
+        alignItems: 'center',
     },
     buttonView: {
         justifyContent: 'center',
         alignItems: 'center',
-        minWidth: 44,
+        minWidth: minWidth,
         height: NAVBAR_HEIGHT,
+        paddingHorizontal: 8,
     },
     buttonText: {
         color: '#394352',
         fontSize: 17,
     },
-    gobackTouch: {
-        minWidth: 44,
-        height: NAVBAR_HEIGHT,
+    leftView: {
+        flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'flex-start',
+    },
+    rightView: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'flex-end',
+    },
+    gobackView: {
+        minWidth: minWidth,
+        height: NAVBAR_HEIGHT,
+        justifyContent: 'center',
+        paddingHorizontal: 16,
     },
     gobackImage: {
         width: 18,
         height: 16,
-    },
-    leftTouch: {
-        flexDirection: 'row',
-        justifyContent: 'center',
-        alignItems: 'flex-start',
-    },
-    rightTouch: {
-        flexDirection: 'row',
-        justifyContent: 'center',
-        alignItems: 'flex-end',
     },
 });
