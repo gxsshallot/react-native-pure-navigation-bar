@@ -79,13 +79,13 @@ export default class NaviBar extends React.Component {
         hasSeperatorLine: PropTypes.bool,
         leftElement: PropTypes.oneOfType([
             PropTypes.string,
-            PropTypes.arrayOf(PropTypes.string),
-            PropTypes.element
+            PropTypes.element,
+            PropTypes.array
         ]),
         rightElement: PropTypes.oneOfType([
             PropTypes.string,
-            PropTypes.arrayOf(PropTypes.string),
-            PropTypes.element
+            PropTypes.element,
+            PropTypes.array
         ]),
         onLeft: PropTypes.func,
         onRight: PropTypes.func,
@@ -117,12 +117,12 @@ export default class NaviBar extends React.Component {
         return [styles[key], innerStyle, custom.style[key], this.props.style[key]];
     };
 
-    _clickButton = (clicktype, identifier) => {
+    _clickButton = (clicktype, identifier, index) => {
         // Dismiss Keyboard
         this.props.autoCloseKeyboard && Keyboard.dismiss();
         // General Button, use 'onLeft' or 'onRight' in this.props
         const clickKey = 'on' + clicktype;
-        const doDefaultAction = this.props[clickKey] && this.props[clickKey](identifier);
+        const doDefaultAction = this.props[clickKey] && this.props[clickKey](index);
         // Goback Button, use global action or navigation's goBack
         if (identifier === GOBACK_BUTTON && doDefaultAction !== false) {
             if (this.props.navigation) {
@@ -134,7 +134,7 @@ export default class NaviBar extends React.Component {
     };
 
     _renderButton = (type, item, index) => {
-        const func = this._clickButton.bind(this, type, item);
+        const func = this._clickButton.bind(this, type, item, index);
         const specStyle = {marginHorizontal: 5, ['margin' + type]: 0};
         const buttonViewStyle = this._combineStyle('buttonView', specStyle);
         if (item === GOBACK_BUTTON) {
