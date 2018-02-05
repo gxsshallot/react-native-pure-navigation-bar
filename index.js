@@ -151,7 +151,7 @@ export default class NaviBar extends React.Component {
         } else if (typeof item === 'string') {
             return (
                 <TouchableOpacity key={index} onPress={func} style={buttonViewStyle}>
-                    <Text>
+                    <Text style={this._combineStyle('buttonText')}>
                         {item}
                     </Text>
                 </TouchableOpacity>
