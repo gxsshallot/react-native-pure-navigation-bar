@@ -122,10 +122,10 @@ export default class NaviBar extends React.Component {
         this.props.autoCloseKeyboard && Keyboard.dismiss();
         // Goback Button, use global action or navigation's goBack
         if (identifier === GOBACK_BUTTON) {
-            if (custom.gobackFunc) {
-                custom.gobackFunc();
+            if (this.props.navigation) {
+                this.props.navigation.goBack();
             } else {
-                this.props.navigation && this.props.navigation.goBack();
+                custom.gobackFunc && custom.gobackFunc();
             }
         }
         // General Button, use 'onLeft' or 'onRight' in this.props
