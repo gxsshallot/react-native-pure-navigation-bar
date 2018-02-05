@@ -1,6 +1,7 @@
 {
   "name": "react-native-pure-navigation-bar",
-  "version": "0.0.1",
+  "version": "1.0.0",
+  "private": false,
   "description": "A navigation bar in React-Native.",
   "main": "index.js",
   "scripts": {

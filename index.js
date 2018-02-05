@@ -144,7 +144,7 @@ export default class NaviBar extends React.Component {
                 <TouchableOpacity key={index} onPress={func} style={this._combineStyle('gobackView', specStyle)}>
                     <Image
                         source={custom.gobackImage}
-                        style={[styles.gobackImage, custom.style.gobackImage]}
+                        style={this._combineStyle('gobackImage')}
                     />
                 </TouchableOpacity>
             );
