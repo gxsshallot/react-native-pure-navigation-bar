@@ -156,9 +156,9 @@ export default class NaviBar extends React.Component {
             );
         } else {
             return (
-                <View key={index} style={buttonViewStyle}>
+                <TouchableOpacity key={index} onPress={func} style={buttonViewStyle}>
                     {item}
-                </View>
+                </TouchableOpacity>
             );
         }
     };
@@ -167,27 +167,22 @@ export default class NaviBar extends React.Component {
         const lowerType = type.toLowerCase();
         const elementKey = lowerType + 'Element';
         let element = this.props[elementKey];
-        if (typeof element === 'string') {
+        if (!Array.isArray(element)) {
             element = [element];
         }
-        let view, extra;
+        let extra;
         const viewStyleKey = lowerType + 'View';
-        if (Array.isArray(element)) {
-            if (type === 'Left') {
-                extra = element.length > 0 && element[0] === GOBACK_BUTTON ? 0 : 8;
-            } else {
-                extra = element.length > 0 && element[element.length - 1] === GOBACK_BUTTON ? 0 : 8;
-            }
-            view = element.map(this._renderButton.bind(this, type));
+        if (type === 'Left') {
+            extra = element.length > 0 && element[0] === GOBACK_BUTTON ? 0 : 8;
         } else {
-            view = element;
+            extra = element.length > 0 && element[element.length - 1] === GOBACK_BUTTON ? 0 : 8;
         }
         return (
             <View
                 onLayout={e => this.setState({[type]: e.nativeEvent.layout.width})}
                 style={this._combineStyle(viewStyleKey, {['padding' + type]: extra})}
             >
-                {view}
+                {element.map(this._renderButton.bind(this, type))}
             </View>
         );
     };
