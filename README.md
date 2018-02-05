@@ -124,7 +124,7 @@ All the key you can customize in Global or Custom settings list below:
 | seperator | Seperator line at the bottom | borderBottomWidth: StyleSheet.hairlineWidth<br>borderBottomColor: '#e6e6ea' |
 | title | Inner title text | fontSize: 18<br>color: '#394352'<br>textAlign: 'center'<br>overflow: 'hidden' |
 | titleContainer | Title container off center | flex: 1<br>justifyContent: 'center'<br>alignItems: 'center' |
-| titleCenterContainer | Title container at center | position: 'absolute'<br>left: 0<br>right: 0<br>top: 0<br>bottom: 0<br>justifyContent: 'center'<br>alignItems: 'center' |
+| titleCenterContainer | Title container at center | position: 'absolute'<br>left: 0<br>right: 0<br>top: STATUSBAR_HEIGHT<br>bottom: 0<br>justifyContent: 'center'<br>alignItems: 'center' |
 | buttonView | Text-type button touchable view | justifyContent: 'center'<br>alignItems: 'center'<br>minWidth: minWidth<br>height: NAVBAR_HEIGHT<br>paddingHorizontal: 8 |
 | buttonText | Text-type button text | color: '#394352'<br>fontSize: 17 |
 | leftView | Left view contains all left buttons | flexDirection: 'row'<br>justifyContent: 'center'<br>alignItems: 'flex-start' |
