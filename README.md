@@ -66,7 +66,45 @@ render() {
 
 This navigation bar is only a component with 'relative' position, not 'absolute' position. If you want to use absolute position, please use the 'style' property in following section.
 
+## Constant
+
+You can import navigation bar height constant like this:
+
+```
+import {STATUSBAR_HEIGHT} from 'react-native-pure-navigation-bar';
+```
+
+All constant about navigation bar height list below:
+
+| Name | iOS (X) | iOS (not X) | Android | Description |
+| :-: | :-: | :-: | :-: | :-: |
+| STATUSBAR_HEIGHT | 44 | 20 | 0 | Only status bar height |
+| NAVBAR_HEIGHT | 44 | 44 | 44 | Only navigation bar height |
+| TOTALBAR_HEIGHT | 88 | 64 | 44 | Total height of status bar and navigation bar |
+
+Other constant:
+
+| Name | Description |
+| :-: | :-: |
+| GOBACK_BUTTON | An identifier when you set 'leftElement' or 'rightElement' to identify the button as GoBack button |
+
 ## Global Settings
+
+You can change the navigation bar settings at the startup, include navigation bar style, GoBack button image and function.
+
+First, you should import methed from library:
+
+```
+import {setCustomStyle} from 'react-native-pure-navigation-bar';
+```
+
+All the method list below (no return value):
+
+| Name | Description | Param Format |
+| :-: | :-: | :-: |
+| setCustomStyle | Set all the style include bar or button or title | (key, style):<br>key: A style key which you can see the following 'Style' section<br>style: A style object created by StyleSheet or only an javascript object |
+| setGlobalGobackFunc | Set GoBack button function | (func):<br>func: A function with no param and no return value|
+| setGlobalGobackImage | Set GoBack button image | (image):<br>image: A number which means a local image or a string which is a remote image url |
 
 ## Custom Setting
 
