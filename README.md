@@ -108,6 +108,21 @@ All the method list below (no return value):
 
 ## Custom Setting
 
+You can control the action or style of navigation bar by passing 'props'.
+
+| PropName | Type | DefaultValue | Description |
+| :-: | :-: | :-: | :-: |
+| title | string or element | '' | Title view of text style or user custom view |
+| titleCenter | bool | true | Title is must at center or not |
+| hasSeperatorLine | bool | true | Bottom of navigation bar has a seperator line or not |
+| leftElement | string or element or array | GOBACK_BUTTON | Left buttons, a string means a button of text style, an element means a button view, an array of string means an array of button which maybe text or custom view |
+| rightElement | string or string array or element | null | Right buttons, same format as 'leftElement' |
+| onLeft | function | undefined | Left button click function, param is button index in 'leftElement', from 0 on. If return is false and button is goback button, then do not call the default goback action |
+| onRight | function | undefined | Right button click function, same format as 'onLeft' |
+| autoCloseKeyboard | bool | true | Auto dismiss keyboard when click button or not |
+| navigation | navigation object | null | A stack navigation object used for goback action |
+| style | style object | {} | A custom style which has highest priority, object's key is in following 'Style' section |
+
 ## Style
 
 The component style is consist of three part:
