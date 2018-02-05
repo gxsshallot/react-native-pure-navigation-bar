@@ -120,18 +120,16 @@ export default class NaviBar extends React.Component {
     _clickButton = (clicktype, identifier) => {
         // Dismiss Keyboard
         this.props.autoCloseKeyboard && Keyboard.dismiss();
+        // General Button, use 'onLeft' or 'onRight' in this.props
+        const clickKey = 'on' + clicktype;
+        const doDefaultAction = this.props[clickKey] && this.props[clickKey](identifier);
         // Goback Button, use global action or navigation's goBack
-        if (identifier === GOBACK_BUTTON) {
+        if (identifier === GOBACK_BUTTON && doDefaultAction !== false) {
             if (this.props.navigation) {
                 this.props.navigation.goBack();
             } else {
                 custom.gobackFunc && custom.gobackFunc();
             }
-        }
-        // General Button, use 'onLeft' or 'onRight' in this.props
-        else {
-            const clickKey = 'on' + clicktype;
-            this.props[clickKey] && this.props[clickKey](identifier);
         }
     };
 
