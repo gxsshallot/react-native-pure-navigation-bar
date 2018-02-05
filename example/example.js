@@ -1,6 +1,6 @@
 import React from 'react';
 import {StyleSheet, Text, View, AppRegistry, TouchableOpacity} from 'react-native';
-import NaviBar, {GOBACK_BUTTON} from './index';
+import NaviBar, {GOBACK_BUTTON} from '../index';
 
 export class Example extends React.Component {
     constructor(props) {

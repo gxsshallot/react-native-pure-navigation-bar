@@ -2,7 +2,5 @@
 .eslintrc
 .travis.yml
 yarn.lock
-example.js
 /__tests__
-/ios
-/android
+/example
