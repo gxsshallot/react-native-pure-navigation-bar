@@ -4,6 +4,8 @@
 [![React Native](https://img.shields.io/badge/react%20native-0.52.2-brightgreen.svg)](https://github.com/facebook/react-native)
 [![License](https://img.shields.io/aur/license/yaourt.svg)](https://github.com/gaoxiaosong/react-native-pure-navigation-bar/blob/master/LICENSE)
 
+[实际截图](https://github.com/gaoxiaosong/react-native-pure-navigation-bar/blob/master/resource/README.md)
+
 这是一个用于React-Native环境的可完全自定义的导航条，可以设置全局统一样式，并且将它以React组件的形式放在每一个页面中。
 
 ## 安装

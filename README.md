@@ -6,6 +6,8 @@
 
 [中文说明](https://github.com/gaoxiaosong/react-native-pure-navigation-bar/blob/master/README-zh_CN.md)
 
+[ScreenShots](https://github.com/gaoxiaosong/react-native-pure-navigation-bar/blob/master/resource/README.md)
+
 Here is a fully customizable navigation bar in React-Native. You can set the global unified style of navigation bar and add it as a react component in each page.
 
 ## Install
