@@ -4,7 +4,7 @@
 [![React Native](https://img.shields.io/badge/react%20native-0.52.2-brightgreen.svg)](https://github.com/facebook/react-native)
 [![License](https://img.shields.io/aur/license/yaourt.svg)](https://github.com/gaoxiaosong/react-native-pure-navigation-bar/blob/master/LICENSE)
 
-[中文说明](https://github.com/gaoxiaosong/react-native-pure-navigation-bar/blob/master/README-zh_CN.md)
+[Chinese README](https://github.com/gaoxiaosong/react-native-pure-navigation-bar/blob/master/README-zh_CN.md)
 
 [ScreenShots](https://github.com/gaoxiaosong/react-native-pure-navigation-bar/blob/master/resource/README.md)
 
