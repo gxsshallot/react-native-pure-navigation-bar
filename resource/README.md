@@ -1,53 +1,29 @@
 ### iPhone 8 Plus
 
-<div style="display:inline">
-<img src="https://github.com/gaoxiaosong/react-native-pure-navigation-bar/raw/master/resource/1-8P.png" alt="1-8P" width="18%" height="18%">
-</div>
-<div style="display:inline">
-<img src="https://github.com/gaoxiaosong/react-native-pure-navigation-bar/raw/master/resource/2-8P.png" alt="2-8P" width="18%" height="18%">
-</div>
-<div style="display:inline">
-<img src="https://github.com/gaoxiaosong/react-native-pure-navigation-bar/raw/master/resource/3-8P.png" alt="3-8P" width="18%" height="18%">
-</div>
-<div style="display:inline">
-<img src="https://github.com/gaoxiaosong/react-native-pure-navigation-bar/raw/master/resource/4-8P.png" alt="4-8P" width="18%" height="18%">
-</div>
-<div style="display:inline">
-<img src="https://github.com/gaoxiaosong/react-native-pure-navigation-bar/raw/master/resource/5-8P.png" alt="5-8P" width="18%" height="18%">
-</div>
+<p float="left">
+<img src="https://github.com/gaoxiaosong/react-native-pure-navigation-bar/raw/master/resource/1-8P.png" width="18%">
+<img src="https://github.com/gaoxiaosong/react-native-pure-navigation-bar/raw/master/resource/2-8P.png" width="18%">
+<img src="https://github.com/gaoxiaosong/react-native-pure-navigation-bar/raw/master/resource/3-8P.png" width="18%">
+<img src="https://github.com/gaoxiaosong/react-native-pure-navigation-bar/raw/master/resource/4-8P.png" width="18%">
+<img src="https://github.com/gaoxiaosong/react-native-pure-navigation-bar/raw/master/resource/5-8P.png" width="18%">
+</p>
 
 ### iPhone X
 
-<div style="display:inline">
-<img src="https://github.com/gaoxiaosong/react-native-pure-navigation-bar/raw/master/resource/1-X.png" alt="1-X" width="18%" height="18%">
-</div>
-<div style="display:inline">
-<img src="https://github.com/gaoxiaosong/react-native-pure-navigation-bar/raw/master/resource/2-X.png" alt="2-X" width="18%" height="18%">
-</div>
-<div style="display:inline">
-<img src="https://github.com/gaoxiaosong/react-native-pure-navigation-bar/raw/master/resource/3-X.png" alt="3-X" width="18%" height="18%">
-</div>
-<div style="display:inline">
-<img src="https://github.com/gaoxiaosong/react-native-pure-navigation-bar/raw/master/resource/4-X.png" alt="4-X" width="18%" height="18%">
-</div>
-<div style="display:inline">
-<img src="https://github.com/gaoxiaosong/react-native-pure-navigation-bar/raw/master/resource/5-X.png" alt="5-X" width="18%" height="18%">
-</div>
+<p float="left">
+<img src="https://github.com/gaoxiaosong/react-native-pure-navigation-bar/raw/master/resource/1-X.png" width="18%">
+<img src="https://github.com/gaoxiaosong/react-native-pure-navigation-bar/raw/master/resource/2-X.png" width="18%">
+<img src="https://github.com/gaoxiaosong/react-native-pure-navigation-bar/raw/master/resource/3-X.png" width="18%">
+<img src="https://github.com/gaoxiaosong/react-native-pure-navigation-bar/raw/master/resource/4-X.png" width="18%">
+<img src="https://github.com/gaoxiaosong/react-native-pure-navigation-bar/raw/master/resource/5-X.png" width="18%">
+</p>
 
 ### Android
 
-<div style="display:inline">
-<img src="https://github.com/gaoxiaosong/react-native-pure-navigation-bar/raw/master/resource/1-A.jpg" alt="1-A" width="18%" height="18%">
-</div>
-<div style="display:inline">
-<img src="https://github.com/gaoxiaosong/react-native-pure-navigation-bar/raw/master/resource/2-A.jpg" alt="2-A" width="18%" height="18%">
-</div>
-<div style="display:inline">
-<img src="https://github.com/gaoxiaosong/react-native-pure-navigation-bar/raw/master/resource/3-A.jpg" alt="3-A" width="18%" height="18%">
-</div>
-<div style="display:inline">
-<img src="https://github.com/gaoxiaosong/react-native-pure-navigation-bar/raw/master/resource/4-A.jpg" alt="4-A" width="18%" height="18%">
-</div>
-<div style="display:inline">
-<img src="https://github.com/gaoxiaosong/react-native-pure-navigation-bar/raw/master/resource/5-A.jpg" alt="5-A" width="18%" height="18%">
-</div>
+<p float="left">
+<img src="https://github.com/gaoxiaosong/react-native-pure-navigation-bar/raw/master/resource/1-A.jpg" width="18%">
+<img src="https://github.com/gaoxiaosong/react-native-pure-navigation-bar/raw/master/resource/2-A.jpg" width="18%">
+<img src="https://github.com/gaoxiaosong/react-native-pure-navigation-bar/raw/master/resource/3-A.jpg" width="18%">
+<img src="https://github.com/gaoxiaosong/react-native-pure-navigation-bar/raw/master/resource/4-A.jpg" width="18%">
+<img src="https://github.com/gaoxiaosong/react-native-pure-navigation-bar/raw/master/resource/5-A.jpg" width="18%">
+</p>
