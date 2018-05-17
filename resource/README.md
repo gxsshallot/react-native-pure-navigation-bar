@@ -1,19 +1,19 @@
-![1-8P](https://github.com/gaoxiaosong/react-native-pure-navigation-bar/raw/master/resource/1-8P.png){:height="33%" width="33%"}
-![1-X](https://github.com/gaoxiaosong/react-native-pure-navigation-bar/raw/master/resource/1-X.png){:height="33%" width="33%"}
-![1-A](https://github.com/gaoxiaosong/react-native-pure-navigation-bar/raw/master/resource/1-A.png){:height="33%" width="33%"}
+<img src="https://github.com/gaoxiaosong/react-native-pure-navigation-bar/raw/master/resource/1-8P.png" alt="1-8P" width="33%" height="33%">
+<img src="https://github.com/gaoxiaosong/react-native-pure-navigation-bar/raw/master/resource/1-X.png" alt="1-X" width="33%" height="33%">
+<img src="https://github.com/gaoxiaosong/react-native-pure-navigation-bar/raw/master/resource/1-A.jpg" alt="1-A" width="33%" height="33%">
 
-![2-8P](https://github.com/gaoxiaosong/react-native-pure-navigation-bar/raw/master/resource/2-8P.png){:height="33%" width="33%"}
-![2-X](https://github.com/gaoxiaosong/react-native-pure-navigation-bar/raw/master/resource/2-X.png){:height="33%" width="33%"}
-![2-A](https://github.com/gaoxiaosong/react-native-pure-navigation-bar/raw/master/resource/2-A.png){:height="33%" width="33%"}
+<img src="https://github.com/gaoxiaosong/react-native-pure-navigation-bar/raw/master/resource/2-8P.png" alt="2-8P" width="33%" height="33%">
+<img src="https://github.com/gaoxiaosong/react-native-pure-navigation-bar/raw/master/resource/2-X.png" alt="2-X" width="33%" height="33%">
+<img src="https://github.com/gaoxiaosong/react-native-pure-navigation-bar/raw/master/resource/2-A.jpg" alt="2-A" width="33%" height="33%">
 
-![3-8P](https://github.com/gaoxiaosong/react-native-pure-navigation-bar/raw/master/resource/3-8P.png){:height="33%" width="33%"}
-![3-X](https://github.com/gaoxiaosong/react-native-pure-navigation-bar/raw/master/resource/3-X.png){:height="33%" width="33%"}
-![3-A](https://github.com/gaoxiaosong/react-native-pure-navigation-bar/raw/master/resource/3-A.png){:height="33%" width="33%"}
+<img src="https://github.com/gaoxiaosong/react-native-pure-navigation-bar/raw/master/resource/3-8P.png" alt="3-8P" width="33%" height="33%">
+<img src="https://github.com/gaoxiaosong/react-native-pure-navigation-bar/raw/master/resource/3-X.png" alt="3-X" width="33%" height="33%">
+<img src="https://github.com/gaoxiaosong/react-native-pure-navigation-bar/raw/master/resource/3-A.jpg" alt="3-A" width="33%" height="33%">
 
-![4-8P](https://github.com/gaoxiaosong/react-native-pure-navigation-bar/raw/master/resource/4-8P.png){:height="33%" width="33%"}
-![4-X](https://github.com/gaoxiaosong/react-native-pure-navigation-bar/raw/master/resource/4-X.png){:height="33%" width="33%"}
-![4-A](https://github.com/gaoxiaosong/react-native-pure-navigation-bar/raw/master/resource/4-A.png){:height="33%" width="33%"}
+<img src="https://github.com/gaoxiaosong/react-native-pure-navigation-bar/raw/master/resource/4-8P.png" alt="4-8P" width="33%" height="33%">
+<img src="https://github.com/gaoxiaosong/react-native-pure-navigation-bar/raw/master/resource/4-X.png" alt="4-X" width="33%" height="33%">
+<img src="https://github.com/gaoxiaosong/react-native-pure-navigation-bar/raw/master/resource/4-A.jpg" alt="4-A" width="33%" height="33%">
 
-![5-8P](https://github.com/gaoxiaosong/react-native-pure-navigation-bar/raw/master/resource/5-8P.png){:height="33%" width="33%"}
-![5-X](https://github.com/gaoxiaosong/react-native-pure-navigation-bar/raw/master/resource/5-X.png){:height="33%" width="33%"}
-![5-A](https://github.com/gaoxiaosong/react-native-pure-navigation-bar/raw/master/resource/5-A.png){:height="33%" width="33%"}
+<img src="https://github.com/gaoxiaosong/react-native-pure-navigation-bar/raw/master/resource/5-8P.png" alt="5-8P" width="33%" height="33%">
+<img src="https://github.com/gaoxiaosong/react-native-pure-navigation-bar/raw/master/resource/5-X.png" alt="5-X" width="33%" height="33%">
+<img src="https://github.com/gaoxiaosong/react-native-pure-navigation-bar/raw/master/resource/5-A.jpg" alt="5-A" width="33%" height="33%">
