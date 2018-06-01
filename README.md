@@ -1,12 +1,12 @@
 # react-native-pure-navigation-bar
 
-[![Build Status](https://travis-ci.org/gaoxiaosong/react-native-pure-navigation-bar.svg?branch=master)](https://travis-ci.org/gaoxiaosong/react-native-pure-navigation-bar)
+[![Build Status](https://travis-ci.org/HecomBJ/react-native-pure-navigation-bar.svg?branch=master)](https://travis-ci.org/HecomBJ/react-native-pure-navigation-bar)
 [![React Native](https://img.shields.io/badge/react%20native-0.52.2-brightgreen.svg)](https://github.com/facebook/react-native)
-[![License](https://img.shields.io/aur/license/yaourt.svg)](https://github.com/gaoxiaosong/react-native-pure-navigation-bar/blob/master/LICENSE)
+[![License](https://img.shields.io/aur/license/yaourt.svg)](https://github.com/HecomBJ/react-native-pure-navigation-bar/blob/master/LICENSE)
 
-[Chinese README](https://github.com/gaoxiaosong/react-native-pure-navigation-bar/blob/master/README-zh_CN.md)
+[Chinese README](https://github.com/HecomBJ/react-native-pure-navigation-bar/blob/master/README-zh_CN.md)
 
-[ScreenShots](https://github.com/gaoxiaosong/react-native-pure-navigation-bar/blob/master/resource/README.md)
+[ScreenShots](https://github.com/HecomBJ/react-native-pure-navigation-bar/blob/master/resource/README.md)
 
 Here is a fully customizable navigation bar in React-Native. You can set the global unified style of navigation bar and add it as a react component in each page.
 

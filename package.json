@@ -1,6 +1,6 @@
 {
   "name": "react-native-pure-navigation-bar",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "private": false,
   "description": "A navigation bar in React-Native.",
   "main": "index.js",
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gaoxiaosong/react-native-pure-navigation-bar.git"
+    "url": "git+https://github.com/HecomBJ/react-native-pure-navigation-bar.git"
   },
   "keywords": [
     "React-Native",
@@ -22,10 +22,10 @@
   "author": "Xiaosong Gao",
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/gaoxiaosong/react-native-pure-navigation-bar/issues",
+    "url": "https://github.com/HecomBJ/react-native-pure-navigation-bar/issues",
     "email": "gaoxiaosong06@gmail.com"
   },
-  "homepage": "https://github.com/gaoxiaosong/react-native-pure-navigation-bar#readme",
+  "homepage": "https://github.com/HecomBJ/react-native-pure-navigation-bar#readme",
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.2.1",
