@@ -1,8 +1,6 @@
 # react-native-pure-navigation-bar
 
 [![编译状态](https://travis-ci.org/RNCommon/react-native-pure-navigation-bar.svg?branch=master)](https://travis-ci.org/RNCommon/react-native-pure-navigation-bar)
-[![React Native](https://img.shields.io/badge/react%20native-0.52.2-brightgreen.svg)](https://github.com/facebook/react-native)
-[![License](https://img.shields.io/aur/license/yaourt.svg)](https://github.com/RNCommon/react-native-pure-navigation-bar/blob/master/LICENSE)
 
 [实际截图](https://github.com/RNCommon/react-native-pure-navigation-bar/blob/master/resource/README.md)
 
