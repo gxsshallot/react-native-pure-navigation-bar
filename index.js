@@ -91,6 +91,7 @@ export default class NaviBar extends React.Component {
         onRight: PropTypes.func,
         autoCloseKeyboard: PropTypes.bool,
         navigation: PropTypes.object,
+        lockEnabled: PropTypes.bool,
         style: PropTypes.any,
     };
 
@@ -102,11 +103,13 @@ export default class NaviBar extends React.Component {
         rightElement: null,
         autoCloseKeyboard: true,
         navigation: null,
+        lockEnabled: true,
         style: {},
     };
 
     constructor(props) {
         super(props);
+        this.locks = {};
         this.state = {
             Left: 0,
             Right: 0,
@@ -118,6 +121,14 @@ export default class NaviBar extends React.Component {
     };
 
     _clickButton = (clicktype, identifier, index) => {
+        const lockKey = clicktype + index;
+        const lockEnabled = this.props.lockEnabled;
+        if (lockEnabled && this.locks[lockKey]) {
+            return;
+        }
+        if (lockEnabled) {
+            this.locks[lockKey] = true;
+        }
         // Dismiss Keyboard
         this.props.autoCloseKeyboard && Keyboard.dismiss();
         // General Button, use 'onLeft' or 'onRight' in this.props
@@ -130,6 +141,9 @@ export default class NaviBar extends React.Component {
             } else {
                 custom.gobackFunc && custom.gobackFunc();
             }
+        }
+        if (lockEnabled) {
+            this.locks[lockKey] = false;
         }
     };
 
