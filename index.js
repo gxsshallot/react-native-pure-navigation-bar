@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, TouchableOpacity, Image, Keyboard, Platform, StyleSheet} from 'react-native';
+import {View, Text, TouchableOpacity, Image, Keyboard, Platform, StyleSheet, StatusBar} from 'react-native';
 import {isIphoneX} from 'react-native-iphone-x-helper';
 import PropTypes from 'prop-types';
 
@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
  * Status bar height for different device type.
  * @type {number}
  */
-export const STATUSBAR_HEIGHT = Platform.OS === 'ios' ? isIphoneX() ? 44 : 20 : 0;
+export const STATUSBAR_HEIGHT = Platform.OS === 'ios' ? isIphoneX() ? 44 : 20 :  StatusBar.currentHeight;
 
 /**
  * Navigation bar height for different device type.
