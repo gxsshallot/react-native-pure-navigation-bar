@@ -10,29 +10,29 @@
 
 ## 安装
 
-使用Yarn安装:
+使用Yarn安装：
 
-```
+```shell
 yarn add react-native-pure-navigation-bar
 ```
 
-使用npm安装:
+使用npm安装：
 
-```
+```shell
 npm install --save react-native-pure-navigation-bar
 ```
 
 ## 使用
 
-首先在文件中导入:
+首先在文件中导入：
 
-```
+```jsx
 import NaviBar from 'react-native-pure-navigation-bar';
 ```
 
-然后在render()方法中添加导航条组件:
+然后在`render()`方法中添加导航条组件：
 
-```
+```jsx
 render() {
   return (
     <View style={{flex: 1}}>
@@ -46,9 +46,9 @@ render() {
 }
 ```
 
-如果你想动态的显示或者隐藏导航条，可以写如下代码:
+如果你想动态的显示或者隐藏导航条，可以写如下代码：
 
-```
+```jsx
 render() {
   return (
     <View style={{flex: 1}}>
@@ -64,13 +64,35 @@ render() {
 }
 ```
 
+或者如果你想要一个透明的状态栏，你可以这样写：
+
+```jsx
+import {StatusBar} from 'react-native';
+
+// ...
+
+render() {
+  return (
+    <View style={{flex: 1}}>
+      <StatusBar translucent={this.state.translucent} />
+      <NaviBar
+        translucent={this.state.translucent}
+        title='CustomTitle'
+        {/* 如果想定制，可以传入props */}
+      />
+      {/* 其他组件 */}
+    </View>
+  );
+}
+```
+
 这个导航条视图只是一个使用相对布局的React组件，不是绝对布局。如果想使用绝对布局，请在参考下面的Style部分，在全局中设置样式或者在属性中设置自定义样式。
 
 ## 常量
 
 可以像这样导入导航条高度的常量:
 
-```
+```jsx
 import {STATUSBAR_HEIGHT} from 'react-native-pure-navigation-bar';
 ```
 
@@ -94,7 +116,7 @@ import {STATUSBAR_HEIGHT} from 'react-native-pure-navigation-bar';
 
 首先，需要导入方法:
 
-```
+```jsx
 import {setCustomStyle} from 'react-native-pure-navigation-bar';
 ```
 
@@ -147,3 +169,13 @@ import {setCustomStyle} from 'react-native-pure-navigation-bar';
 | rightView | 所有右侧按钮的区域 | flexDirection: 'row'<br>justifyContent: 'center'<br>alignItems: 'flex-end' |
 | gobackView | 回退按钮的可点击区域 | minWidth: minWidth<br>height: NAVBAR_HEIGHT<br>justifyContent: 'center'<br>paddingHorizontal: 16 |
 | gobackImage | 回退按钮的图片 | width: 18<br>height: 16 |
+
+## 样例工程
+
+你可以使用如下步骤来打开样例工程：
+
+1. 使用`yarn`或`npm install`安装模块。
+1. 运行`npm run bundle:ios`或`npm run bundle:android`打包。
+1. 在一个单独的终端中运行`npm start`。
+1. 使用`Xcode`或`Android Studio`打开`example/ios`或`example/android`中的工程。
+1. 运行工程。

@@ -14,13 +14,13 @@ Here is a fully customizable navigation bar in React-Native. You can set the glo
 
 Install by Yarn:
 
-```
+```shell
 yarn add react-native-pure-navigation-bar
 ```
 
 Install by NPM:
 
-```
+```shell
 npm install --save react-native-pure-navigation-bar
 ```
 
@@ -28,13 +28,13 @@ npm install --save react-native-pure-navigation-bar
 
 First import in the file:
 
-```
+```jsx
 import NaviBar from 'react-native-pure-navigation-bar';
 ```
 
-Then add component in render() function:
+Then add component in `render()` function:
 
-```
+```jsx
 render() {
   return (
     <View style={{flex: 1}}>
@@ -50,7 +50,7 @@ render() {
 
 If you want to hide or show navigation bar dynamiclly, you can write these code:
 
-```
+```jsx
 render() {
   return (
     <View style={{flex: 1}}>
@@ -66,13 +66,35 @@ render() {
 }
 ```
 
+Or if you want a translucent status bar, you can write like this:
+
+```jsx
+import {StatusBar} from 'react-native';
+
+// ...
+
+render() {
+  return (
+    <View style={{flex: 1}}>
+      <StatusBar translucent={this.state.translucent} />
+      <NaviBar
+        translucent={this.state.translucent}
+        title='CustomTitle'
+        {/* other properties if you want to specify */}
+      />
+      {/* other components */}
+    </View>
+  );
+}
+```
+
 This navigation bar is only a component with 'relative' position, not 'absolute' position. If you want to use absolute position, please use the 'style' property in following section.
 
 ## Constant
 
 You can import navigation bar height constant like this:
 
-```
+```jsx
 import {STATUSBAR_HEIGHT} from 'react-native-pure-navigation-bar';
 ```
 
@@ -96,7 +118,7 @@ You can change the navigation bar settings at the startup, include navigation ba
 
 First, you should import methed from library:
 
-```
+```jsx
 import {setCustomStyle} from 'react-native-pure-navigation-bar';
 ```
 
@@ -149,3 +171,13 @@ All the key you can customize in Global or Custom settings list below:
 | rightView | Right view contains all right buttons | flexDirection: 'row'<br>justifyContent: 'center'<br>alignItems: 'flex-end' |
 | gobackView | Goback button touchable view | minWidth: minWidth<br>height: NAVBAR_HEIGHT<br>justifyContent: 'center'<br>paddingHorizontal: 16 |
 | gobackImage | Goback button image | width: 18<br>height: 16 |
+
+## Example Project
+
+You can open the example project by following steps:
+
+1. Use `yarn` or `npm install` to install the modules.
+1. Run `npm run bundle:ios` or `npm run bundle:android` to bundle the package.
+1. Run `npm start` in a seperate terminal.
+1. Use `Xcode` or `Android Studio` to open the project in `example/ios` or `example/android`.
+1. Run the project.
