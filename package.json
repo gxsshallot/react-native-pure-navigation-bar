@@ -7,6 +7,7 @@
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "bundle:ios": "node ./node_modules/react-native/local-cli/cli.js bundle --platform ios --entry-file example/example.js --bundle-output example/ios/main.jsbundle --dev=false --verbose",
+    "bundle:android": "node ./node_modules/react-native/local-cli/cli.js bundle --platform android --entry-file example/example.js --bundle-output example/android/app/src/main/assets/main.jsbundle --assets-dest example/android/app/src/main/res/ --dev=false --verbose",
     "lint": "eslint index.js example.js",
     "test": "jest"
   },

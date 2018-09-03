@@ -1,6 +1,6 @@
 import React from 'react';
-import {StyleSheet, Text, View, AppRegistry, TouchableOpacity} from 'react-native';
-import NaviBar, {GOBACK_BUTTON} from '../index';
+import { AppRegistry, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import NaviBar, { GOBACK_BUTTON } from '../index';
 
 export class Example extends React.Component {
     constructor(props) {
@@ -34,6 +34,11 @@ export class Example extends React.Component {
     render() {
         return (
             <View style={styles.container}>
+                <StatusBar
+                    translucent={this.state.translucent}
+                    backgroundColor={'transparent'}
+                    barStyle={'dark-content'}
+                />
                 <NaviBar
                     translucent={this.state.translucent}
                     title={this.state.title}
