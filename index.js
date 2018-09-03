@@ -3,17 +3,19 @@ import {View, Text, TouchableOpacity, Image, Keyboard, Platform, StyleSheet, Sta
 import {isIphoneX} from 'react-native-iphone-x-helper';
 import PropTypes from 'prop-types';
 
+const isIos = Platform.OS === 'ios';
+
 /**
  * Status bar height for different device type.
  * @type {number}
  */
-export const STATUSBAR_HEIGHT = Platform.OS === 'ios' ? isIphoneX() ? 44 : 20 :  StatusBar.currentHeight;
+export const STATUSBAR_HEIGHT = isIos ? isIphoneX() ? 44 : 20 :  StatusBar.currentHeight;
 
 /**
  * Navigation bar height for different device type.
  * @type {number}
  */
-export const NAVBAR_HEIGHT = Platform.OS === 'ios' ? 44 : 44;
+export const NAVBAR_HEIGHT = isIos ? 44 : 44;
 
 /**
  * Total height (include status bar and navigation bar) for different device type.
@@ -74,6 +76,7 @@ const custom = {
  */
 export default class NaviBar extends React.Component {
     static propTypes = {
+        translucent: PropTypes.bool,
         title: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
         titleCenter: PropTypes.bool,
         hasSeperatorLine: PropTypes.bool,
@@ -96,6 +99,7 @@ export default class NaviBar extends React.Component {
     };
 
     static defaultProps = {
+        translucent: false,
         title: '',
         titleCenter: true,
         hasSeperatorLine: true,
@@ -117,7 +121,8 @@ export default class NaviBar extends React.Component {
     }
 
     _combineStyle = (key, innerStyle = undefined) => {
-        return [styles[key], innerStyle, custom.style[key], this.props.style[key]];
+        const style = Array.isArray(innerStyle) ? innerStyle : [innerStyle];
+        return [styles[key], ...style, custom.style[key], this.props.style[key]];
     };
 
     _clickButton = (clicktype, identifier, index) => {
@@ -221,15 +226,24 @@ export default class NaviBar extends React.Component {
             ? {left: edge, right: edge}
             : {};
         const seperatorLineStyle = hasSeperatorLine ? this._combineStyle('seperator') : {};
+        const topHeight = isIos || this.props.translucent ? STATUSBAR_HEIGHT : 0;
+        const containerStyle = this.props.translucent ? {
+            marginTop: topHeight,
+            height: NAVBAR_HEIGHT,
+        } : {
+            paddingTop: topHeight,
+            height: topHeight + NAVBAR_HEIGHT,
+        };
+        const titleCenterStyle = this.props.translucent ? {top: 0} : {top: topHeight};
         return (
-            <View style={this._combineStyle('container', seperatorLineStyle)}>
+            <View style={this._combineStyle('container', [seperatorLineStyle, containerStyle])}>
                 {this._renderButtons('Left')}
                 {!titleCenter ? (
                     <View style={this._combineStyle('titleContainer')}>
                         {this._renderTitleView()}
                     </View>
                 ) : (
-                    <View style={this._combineStyle('titleCenterContainer', maxWidthCenterStyle)}>
+                    <View style={this._combineStyle('titleCenterContainer', [maxWidthCenterStyle, titleCenterStyle])}>
                         {this._renderTitleView()}
                     </View>
                 )}
@@ -246,8 +260,6 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         flexDirection: 'row',
         alignItems: 'center',
-        paddingTop: STATUSBAR_HEIGHT,
-        height: TOTALBAR_HEIGHT,
         backgroundColor: 'white',
     },
     seperator: {
@@ -269,7 +281,6 @@ const styles = StyleSheet.create({
         position: 'absolute',
         left: 0,
         right: 0,
-        top: STATUSBAR_HEIGHT,
         bottom: 0,
         justifyContent: 'center',
         alignItems: 'center',

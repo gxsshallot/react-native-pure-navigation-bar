@@ -1,8 +1,10 @@
 # react-native-pure-navigation-bar
 
-[![编译状态](https://travis-ci.org/RNCommon/react-native-pure-navigation-bar.svg?branch=master)](https://travis-ci.org/RNCommon/react-native-pure-navigation-bar)
+[![编译状态](https://travis-ci.org/gaoxiaosong/react-native-pure-navigation-bar.svg?branch=master)](https://travis-ci.org/gaoxiaosong/react-native-pure-navigation-bar)
 
-[实际截图](https://github.com/RNCommon/react-native-pure-navigation-bar/blob/master/resource/README.md)
+[实际截图](resource/ScreenShot.md)
+
+[修改记录](CHANGELOG.md)
 
 这是一个用于React-Native环境的可完全自定义的导航条，可以设置全局统一样式，并且将它以React组件的形式放在每一个页面中。
 
@@ -76,9 +78,9 @@ import {STATUSBAR_HEIGHT} from 'react-native-pure-navigation-bar';
 
 | 名称 | iOS (X) | iOS (not X) | Android | 描述 |
 | :-: | :-: | :-: | :-: | :-: |
-| STATUSBAR_HEIGHT | 44 | 20 | 0 | 状态栏高度 |
+| STATUSBAR_HEIGHT | 44 | 20 | StatusBar.currentHeight | 状态栏高度 |
 | NAVBAR_HEIGHT | 44 | 44 | 44 | 导航条高度 |
-| TOTALBAR_HEIGHT | 88 | 64 | 44 | 状态栏和导航条的总高度 |
+| TOTALBAR_HEIGHT | 88 | 64 | 44 + (translucent ? StatusBar.currentHeight : 0) | 状态栏和导航条的总高度 |
 
 其他常量:
 
@@ -110,6 +112,7 @@ import {setCustomStyle} from 'react-native-pure-navigation-bar';
 
 | 属性名 | 类型 | 默认值 | 描述 |
 | :-: | :-: | :-: | :-: |
+| translucent | 布尔值 | false | 状态栏的透明属性，非透明则背景色用白色，透明则透明色 |
 | title | 字符串或者组件 | '' | 文本样式的标题或者用户自定义组件 |
 | titleCenter | 布尔值 | true | 标题是否必须居中 |
 | hasSeperatorLine | 布尔值 | true | 导航条底部是否有分隔线 |

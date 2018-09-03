@@ -1,10 +1,12 @@
 # react-native-pure-navigation-bar
 
-[![Build Status](https://travis-ci.org/RNCommon/react-native-pure-navigation-bar.svg?branch=master)](https://travis-ci.org/RNCommon/react-native-pure-navigation-bar)
+[![Build Status](https://travis-ci.org/gaoxiaosong/react-native-pure-navigation-bar.svg?branch=master)](https://travis-ci.org/gaoxiaosong/react-native-pure-navigation-bar)
 
-[Chinese README](https://github.com/RNCommon/react-native-pure-navigation-bar/blob/master/README-zh_CN.md)
+[Chinese README](https://github.com/gaoxiaosong/react-native-pure-navigation-bar/blob/master/README-zh_CN.md)
 
-[ScreenShots](https://github.com/RNCommon/react-native-pure-navigation-bar/blob/master/resource/README.md)
+[ScreenShots](https://github.com/gaoxiaosong/react-native-pure-navigation-bar/blob/master/resource/ScreenShot.md)
+
+[CHANGELOG](https://github.com/gaoxiaosong/react-native-pure-navigation-bar/blob/master/CHANGELOG.md)
 
 Here is a fully customizable navigation bar in React-Native. You can set the global unified style of navigation bar and add it as a react component in each page.
 
@@ -78,9 +80,9 @@ All constant about navigation bar height list below:
 
 | Name | iOS (X) | iOS (not X) | Android | Description |
 | :-: | :-: | :-: | :-: | :-: |
-| STATUSBAR_HEIGHT | 44 | 20 | 0 | Only status bar height |
+| STATUSBAR_HEIGHT | 44 | 20 | StatusBar.currentHeight | Only status bar height |
 | NAVBAR_HEIGHT | 44 | 44 | 44 | Only navigation bar height |
-| TOTALBAR_HEIGHT | 88 | 64 | 44 | Total height of status bar and navigation bar |
+| TOTALBAR_HEIGHT | 88 | 64 | 44 + (translucent ? StatusBar.currentHeight : 0) | Total height of status bar and navigation bar |
 
 Other constant:
 
@@ -112,6 +114,7 @@ You can control the action or style of navigation bar by passing 'props'.
 
 | PropName | Type | DefaultValue | Description |
 | :-: | :-: | :-: | :-: |
+| translucent | bool | false | Status bar translucent status. If it's true, background color is `transparent`, else `white` |
 | title | string or element | '' | Title view of text style or user custom view |
 | titleCenter | bool | true | Title is must at center or not |
 | hasSeperatorLine | bool | true | Bottom of navigation bar has a seperator line or not |

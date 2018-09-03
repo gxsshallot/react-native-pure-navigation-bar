@@ -6,6 +6,7 @@ export class Example extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            translucent: false,
             title: 'TestPage',
             titleCenter: false,
             seperator: true,
@@ -34,6 +35,7 @@ export class Example extends React.Component {
         return (
             <View style={styles.container}>
                 <NaviBar
+                    translucent={this.state.translucent}
                     title={this.state.title}
                     titleCenter={this.state.titleCenter}
                     hasSeperatorLine={this.state.seperator}
@@ -46,6 +48,7 @@ export class Example extends React.Component {
                         rightView: this.state.rightStyle,
                     }}
                 />
+                {this._renderItem('translucent', true, false, 'Make Status Bar UnTranslucent', 'Make Status Bar Translucent')}
                 {this._renderItem('title', 'TestPage', 'This a test page and title is very long', 'Make Title Longer', 'Make Title Shorter', item => item === 'TestPage')}
                 {this._renderItem('titleCenter', true, false, 'Make Title UnCenter', 'Make Title Center')}
                 {this._renderItem('seperator', true, false, 'Hide Seperator', 'Show Seperator')}
@@ -63,7 +66,7 @@ export class Example extends React.Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#F5FCFF',
+        backgroundColor: 'blue',
     },
     touch: {
         height: 44,
