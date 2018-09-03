@@ -21,7 +21,7 @@
     "NaviBar"
   ],
   "author": "Xiaosong Gao",
-  "license": "GPL-3.0",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/gaoxiaosong/react-native-pure-navigation-bar/issues",
     "email": "gaoxiaosong06@gmail.com"
