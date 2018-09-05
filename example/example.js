@@ -1,8 +1,8 @@
 import React from 'react';
 import { AppRegistry, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import NaviBar, { GOBACK_BUTTON } from '../index';
+import NaviBar, { GOBACK_BUTTON } from 'react-native-pure-navigation-bar';
 
-export class Example extends React.Component {
+class Example extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -61,7 +61,7 @@ export class Example extends React.Component {
                 {this._renderItem('rightElement', 'OK', undefined, 'Make Right Empty', 'Make Right Full')}
                 {this._renderItem('containerStyle', {backgroundColor: 'gray'}, undefined, 'Make Whole Normal', 'Make Whole Gray')}
                 {this._renderItem('titleStyle', {backgroundColor: 'green'}, undefined, 'Make Title Normal', 'Make Title Green')}
-                {this._renderItem('leftStyle', {backgroundColor: 'blue'}, undefined, 'Make Left Normal', 'Make Left Blue')}
+                {this._renderItem('leftStyle', {backgroundColor: 'yellow'}, undefined, 'Make Left Normal', 'Make Left Yellow')}
                 {this._renderItem('rightStyle', {backgroundColor: 'red'}, undefined, 'Make Right Normal', 'Make Right Red')}
             </View>
         );

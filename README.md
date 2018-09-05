@@ -111,6 +111,7 @@ Other constant:
 | Name | Description |
 | :-: | :-: |
 | GOBACK_BUTTON | An identifier when you set 'leftElement' or 'rightElement' to identify the button as GoBack button |
+| GOBACK_IMAGE | An default image for GOBACK_BUTTON |
 
 ## Global Settings
 
@@ -176,6 +177,7 @@ All the key you can customize in Global or Custom settings list below:
 
 You can open the example project by following steps:
 
+1. `cd example`.
 1. Use `yarn` or `npm install` to install the modules.
 1. Run `npm run bundle:ios` or `npm run bundle:android` to bundle the package.
 1. Run `npm start` in a seperate terminal.

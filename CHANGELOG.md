@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 1.2.6
+
+* Move all dependencies except `react-native-iphone-x-helper` to `example/package.json`.
+* Add constant `GOBACK_IMAGE` as the default image of goback button.
+
 ## 1.2.5
 
 * Add support for translucent props.

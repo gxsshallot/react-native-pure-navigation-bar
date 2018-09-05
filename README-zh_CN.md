@@ -109,6 +109,7 @@ import {STATUSBAR_HEIGHT} from 'react-native-pure-navigation-bar';
 | 名称 | 描述 |
 | :-: | :-: |
 | GOBACK_BUTTON | 可以在leftElement或者rightElement中设置的常量，用来标识这是一个特殊的回退按钮 |
+| GOBACK_IMAGE | 回退按钮的默认图片 |
 
 ## 全局设置
 
@@ -174,8 +175,9 @@ import {setCustomStyle} from 'react-native-pure-navigation-bar';
 
 你可以使用如下步骤来打开样例工程：
 
-1. 使用`yarn`或`npm install`安装模块。
-1. 运行`npm run bundle:ios`或`npm run bundle:android`打包。
-1. 在一个单独的终端中运行`npm start`。
-1. 使用`Xcode`或`Android Studio`打开`example/ios`或`example/android`中的工程。
-1. 运行工程。
+1. `cd example`.
+2. 使用`yarn`或`npm install`安装模块。
+3. 运行`npm run bundle:ios`或`npm run bundle:android`打包。
+4. 在一个单独的终端中运行`npm start`。
+5. 使用`Xcode`或`Android Studio`打开`example/ios`或`example/android`中的工程。
+6. 运行工程。

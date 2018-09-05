@@ -1,0 +1,23 @@
+{
+  "name": "react-native-pure-navigation-bar-example",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Navigation Bar Example App.",
+  "main": "example.js",
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "bundle:ios": "node ./node_modules/react-native/local-cli/cli.js bundle --platform ios --entry-file example.js --bundle-output ios/main.jsbundle --dev=false --verbose",
+    "bundle:android": "mkdir android/app/src/main/assets; node ./node_modules/react-native/local-cli/cli.js bundle --platform android --entry-file example.js --bundle-output android/app/src/main/assets/main.jsbundle --assets-dest android/app/src/main/res/ --dev=false --verbose"
+  },
+  "author": "Xiaosong Gao",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-preset-react-native": "4.0.0"
+  },
+  "dependencies": {
+    "@types/react-dom": "^16.0.7",
+    "react": "16.2.0",
+    "react-native": "0.52.2",
+    "react-native-pure-navigation-bar": "../"
+  }
+}

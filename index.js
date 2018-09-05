@@ -30,6 +30,12 @@ export const TOTALBAR_HEIGHT = NAVBAR_HEIGHT + STATUSBAR_HEIGHT;
 export const GOBACK_BUTTON = '__gobackbutton__';
 
 /**
+ * Goback button image.
+ * @type {number}
+ */
+export const GOBACK_IMAGE = require('./image/nav_back.png');
+
+/**
  * Set global custom style.
  * @param key a string which is also a key of 'styles' object below
  * @param style an object to override the default style
@@ -67,7 +73,7 @@ export const setGlobalGobackImage = (image) => {
 
 const custom = {
     style: {},
-    gobackImage: require('./image/nav_back.png'),
+    gobackImage: GOBACK_IMAGE,
     gobackFunc: null,
 };
 
