@@ -1,7 +1,5 @@
 # react-native-pure-navigation-bar
 
-[![Build Status](https://travis-ci.org/gaoxiaosong/react-native-pure-navigation-bar.svg?branch=master)](https://travis-ci.org/gaoxiaosong/react-native-pure-navigation-bar)
-
 [Chinese README](https://github.com/gaoxiaosong/react-native-pure-navigation-bar/blob/master/README-zh_CN.md)
 
 [ScreenShots](https://github.com/gaoxiaosong/react-native-pure-navigation-bar/blob/master/resource/ScreenShot.md)
