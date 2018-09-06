@@ -181,3 +181,7 @@ You can open the example project by following steps:
 1. Run `npm start` in a seperate terminal.
 1. Use `Xcode` or `Android Studio` to open the project in `example/ios` or `example/android`.
 1. Run the project.
+
+## Reference
+
+Please see this repository: [react-native-items](https://github.com/gaoxiaosong/react-native-items).

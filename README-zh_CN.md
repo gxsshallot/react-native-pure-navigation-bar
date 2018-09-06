@@ -179,3 +179,7 @@ import {setCustomStyle} from 'react-native-pure-navigation-bar';
 4. 在一个单独的终端中运行`npm start`。
 5. 使用`Xcode`或`Android Studio`打开`example/ios`或`example/android`中的工程。
 6. 运行工程。
+
+## 参考
+
+请参照这个仓库的说明: [react-native-items](https://github.com/gaoxiaosong/react-native-items/blob/master/README-zh_CN.md).
