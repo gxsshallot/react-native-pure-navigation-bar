@@ -33,13 +33,13 @@ import NaviBar from 'react-native-pure-navigation-bar';
 ```jsx
 render() {
   return (
-    <View style={{flex: 1}}>
+    <SafeAreaView style={{flex: 1}}>
       <NaviBar
         title='自定义标题'
         {/* 如果想定制，可以传入props */}
       />
       {/* 其他组件 */}
-    </View>
+    </SafeAreaView>
   );
 }
 ```
@@ -49,7 +49,7 @@ render() {
 ```jsx
 render() {
   return (
-    <View style={{flex: 1}}>
+    <SafeAreaView style={{flex: 1}}>
       {this.state.showNaviBar && (
         <NaviBar
           title='自定义标题'
@@ -57,29 +57,7 @@ render() {
         />
       )}
       {/* 其他组件 */}
-    </View>
-  );
-}
-```
-
-或者如果你想要一个透明的状态栏，你可以这样写：
-
-```jsx
-import {StatusBar} from 'react-native';
-
-// ...
-
-render() {
-  return (
-    <View style={{flex: 1}}>
-      <StatusBar translucent={this.state.translucent} />
-      <NaviBar
-        translucent={this.state.translucent}
-        title='CustomTitle'
-        {/* 如果想定制，可以传入props */}
-      />
-      {/* 其他组件 */}
-    </View>
+    </SafeAreaView>
   );
 }
 ```
@@ -91,16 +69,10 @@ render() {
 可以像这样导入导航条高度的常量:
 
 ```jsx
-import {STATUSBAR_HEIGHT} from 'react-native-pure-navigation-bar';
+import {NAVBAR_HEIGHT} from 'react-native-pure-navigation-bar';
 ```
 
-所有关于导航条的常量如下所示:
-
-| 名称 | iOS (X) | iOS (not X) | Android | 描述 |
-| :-: | :-: | :-: | :-: | :-: |
-| STATUSBAR_HEIGHT | 44 | 20 | StatusBar.currentHeight | 状态栏高度 |
-| NAVBAR_HEIGHT | 44 | 44 | 44 | 导航条高度 |
-| TOTALBAR_HEIGHT | 88 | 64 | 44 + (translucent ? StatusBar.currentHeight : 0) | 状态栏和导航条的总高度 |
+`NAVBAR_HEIGHT`总是44。
 
 其他常量:
 
@@ -133,7 +105,6 @@ import {setCustomStyle} from 'react-native-pure-navigation-bar';
 
 | 属性名 | 类型 | 默认值 | 描述 |
 | :-: | :-: | :-: | :-: |
-| translucent | 布尔值 | false | 状态栏的透明属性，非透明则背景色用白色，透明则透明色 |
 | title | 字符串或者组件 | '' | 文本样式的标题或者用户自定义组件 |
 | titleCenter | 布尔值 | true | 标题是否必须居中 |
 | hasSeperatorLine | 布尔值 | true | 导航条底部是否有分隔线 |

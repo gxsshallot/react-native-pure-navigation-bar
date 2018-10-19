@@ -1,27 +1,12 @@
 import React from 'react';
-import {View, Text, TouchableOpacity, Image, Keyboard, Platform, StyleSheet, StatusBar} from 'react-native';
-import {isIphoneX} from 'react-native-iphone-x-helper';
+import {View, Text, TouchableOpacity, Image, Keyboard, StyleSheet} from 'react-native';
 import PropTypes from 'prop-types';
-
-const isIos = Platform.OS === 'ios';
-
-/**
- * Status bar height for different device type.
- * @type {number}
- */
-export const STATUSBAR_HEIGHT = isIos ? isIphoneX() ? 44 : 20 :  StatusBar.currentHeight;
 
 /**
  * Navigation bar height for different device type.
  * @type {number}
  */
 export const NAVBAR_HEIGHT = 44;
-
-/**
- * Total height (include status bar and navigation bar) for different device type.
- * @type {number}
- */
-export const TOTALBAR_HEIGHT = NAVBAR_HEIGHT + STATUSBAR_HEIGHT;
 
 /**
  * Goback button identifier.
@@ -82,7 +67,6 @@ const custom = {
  */
 export default class NaviBar extends React.Component {
     static propTypes = {
-        translucent: PropTypes.bool,
         title: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
         titleCenter: PropTypes.bool,
         hasSeperatorLine: PropTypes.bool,
@@ -105,7 +89,6 @@ export default class NaviBar extends React.Component {
     };
 
     static defaultProps = {
-        translucent: false,
         title: '',
         titleCenter: true,
         hasSeperatorLine: true,

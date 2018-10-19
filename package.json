@@ -19,8 +19,5 @@
     "url": "https://github.com/gaoxiaosong/react-native-pure-navigation-bar/issues",
     "email": "gaoxiaosong06@gmail.com"
   },
-  "homepage": "https://github.com/gaoxiaosong/react-native-pure-navigation-bar#readme",
-  "dependencies": {
-    "react-native-iphone-x-helper": "^1.2.0"
-  }
+  "homepage": "https://github.com/gaoxiaosong/react-native-pure-navigation-bar#readme"
 }

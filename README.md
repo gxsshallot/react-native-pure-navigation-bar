@@ -35,13 +35,13 @@ Then add component in `render()` function:
 ```jsx
 render() {
   return (
-    <View style={{flex: 1}}>
+    <SafeAreaView style={{flex: 1}}>
       <NaviBar
         title='CustomTitle'
         {/* other properties if you want to specify it */}
       />
       {/* other components */}
-    </View>
+    </SafeAreaView>
   );
 }
 ```
@@ -51,7 +51,7 @@ If you want to hide or show navigation bar dynamiclly, you can write these code:
 ```jsx
 render() {
   return (
-    <View style={{flex: 1}}>
+    <SafeAreaView style={{flex: 1}}>
       {this.state.showNaviBar && (
         <NaviBar
           title='CustomTitle'
@@ -59,29 +59,7 @@ render() {
         />
       )}
       {/* other components */}
-    </View>
-  );
-}
-```
-
-Or if you want a translucent status bar, you can write like this:
-
-```jsx
-import {StatusBar} from 'react-native';
-
-// ...
-
-render() {
-  return (
-    <View style={{flex: 1}}>
-      <StatusBar translucent={this.state.translucent} />
-      <NaviBar
-        translucent={this.state.translucent}
-        title='CustomTitle'
-        {/* other properties if you want to specify */}
-      />
-      {/* other components */}
-    </View>
+    </SafeAreaView>
   );
 }
 ```
@@ -93,16 +71,10 @@ This navigation bar is only a component with 'relative' position, not 'absolute'
 You can import navigation bar height constant like this:
 
 ```jsx
-import {STATUSBAR_HEIGHT} from 'react-native-pure-navigation-bar';
+import {NAVBAR_HEIGHT} from 'react-native-pure-navigation-bar';
 ```
 
-All constant about navigation bar height list below:
-
-| Name | iOS (X) | iOS (not X) | Android | Description |
-| :-: | :-: | :-: | :-: | :-: |
-| STATUSBAR_HEIGHT | 44 | 20 | StatusBar.currentHeight | Only status bar height |
-| NAVBAR_HEIGHT | 44 | 44 | 44 | Only navigation bar height |
-| TOTALBAR_HEIGHT | 88 | 64 | 44 + (translucent ? StatusBar.currentHeight : 0) | Total height of status bar and navigation bar |
+`NAVBAR_HEIGHT` is always 44.
 
 Other constant:
 
@@ -135,7 +107,6 @@ You can control the action or style of navigation bar by passing 'props'.
 
 | PropName | Type | DefaultValue | Description |
 | :-: | :-: | :-: | :-: |
-| translucent | bool | false | Status bar translucent status. If it's true, background color is `transparent`, else `white` |
 | title | string or element | '' | Title view of text style or user custom view |
 | titleCenter | bool | true | Title is must at center or not |
 | hasSeperatorLine | bool | true | Bottom of navigation bar has a seperator line or not |
