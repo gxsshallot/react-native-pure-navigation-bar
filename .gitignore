@@ -9,6 +9,9 @@ xcuserdata
 *.xccheckout
 DerivedData
 project.xcworkspace
+/example/ios/Pods
+/example/ios/test.xcworkspace
+/example/ios/Podfile.lock
 
 # Android/IntelliJ
 build/

@@ -6,18 +6,18 @@
   "main": "example.js",
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "bundle:ios": "node ./node_modules/react-native/local-cli/cli.js bundle --platform ios --entry-file example.js --bundle-output ios/main.jsbundle --dev=false --verbose",
+    "bundle:ios": "node ./node_modules/react-native/local-cli/cli.js bundle --platform ios --entry-file example.js --bundle-output ios/main.jsbundle --assets-dest ios/test --dev=false --verbose",
     "bundle:android": "mkdir android/app/src/main/assets; node ./node_modules/react-native/local-cli/cli.js bundle --platform android --entry-file example.js --bundle-output android/app/src/main/assets/main.jsbundle --assets-dest android/app/src/main/res/ --dev=false --verbose"
   },
   "author": "Xiaosong Gao",
   "license": "MIT",
   "devDependencies": {
-    "babel-preset-react-native": "4.0.0"
+    "@babel/core": "^7.0.0",
+    "metro-react-native-babel-preset": "0.48.1"
   },
   "dependencies": {
-    "@types/react-dom": "^16.0.7",
-    "react": "16.2.0",
-    "react-native": "0.52.2",
+    "react": "16.5.0",
+    "react-native": "0.57.2",
     "react-native-pure-navigation-bar": "../"
   }
 }

@@ -1,12 +1,11 @@
 import React from 'react';
-import { AppRegistry, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { AppRegistry, StyleSheet, Text, TouchableOpacity, SafeAreaView } from 'react-native';
 import NaviBar, { GOBACK_BUTTON } from 'react-native-pure-navigation-bar';
 
 class Example extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            translucent: false,
             title: 'TestPage',
             titleCenter: false,
             seperator: true,
@@ -33,14 +32,8 @@ class Example extends React.Component {
 
     render() {
         return (
-            <View style={styles.container}>
-                <StatusBar
-                    translucent={this.state.translucent}
-                    backgroundColor={'transparent'}
-                    barStyle={'dark-content'}
-                />
+            <SafeAreaView style={styles.container}>
                 <NaviBar
-                    translucent={this.state.translucent}
                     title={this.state.title}
                     titleCenter={this.state.titleCenter}
                     hasSeperatorLine={this.state.seperator}
@@ -53,7 +46,6 @@ class Example extends React.Component {
                         rightView: this.state.rightStyle,
                     }}
                 />
-                {this._renderItem('translucent', true, false, 'Make Status Bar UnTranslucent', 'Make Status Bar Translucent')}
                 {this._renderItem('title', 'TestPage', 'This a test page and title is very long', 'Make Title Longer', 'Make Title Shorter', item => item === 'TestPage')}
                 {this._renderItem('titleCenter', true, false, 'Make Title UnCenter', 'Make Title Center')}
                 {this._renderItem('seperator', true, false, 'Hide Seperator', 'Show Seperator')}
@@ -63,7 +55,7 @@ class Example extends React.Component {
                 {this._renderItem('titleStyle', {backgroundColor: 'green'}, undefined, 'Make Title Normal', 'Make Title Green')}
                 {this._renderItem('leftStyle', {backgroundColor: 'yellow'}, undefined, 'Make Left Normal', 'Make Left Yellow')}
                 {this._renderItem('rightStyle', {backgroundColor: 'red'}, undefined, 'Make Right Normal', 'Make Right Red')}
-            </View>
+            </SafeAreaView>
         );
     }
 }

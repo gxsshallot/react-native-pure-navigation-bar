@@ -146,6 +146,7 @@ You can open the example project by following steps:
 
 1. `cd example`.
 1. Use `yarn` or `npm install` to install the modules.
+1. For iOS, you should run `pod install` in `ios` directory.
 1. Run `npm run bundle:ios` or `npm run bundle:android` to bundle the package.
 1. Run `npm start` in a seperate terminal.
 1. Use `Xcode` or `Android Studio` to open the project in `example/ios` or `example/android`.

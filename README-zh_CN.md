@@ -143,11 +143,12 @@ import {setCustomStyle} from 'react-native-pure-navigation-bar';
 你可以使用如下步骤来打开样例工程：
 
 1. `cd example`.
-2. 使用`yarn`或`npm install`安装模块。
-3. 运行`npm run bundle:ios`或`npm run bundle:android`打包。
-4. 在一个单独的终端中运行`npm start`。
-5. 使用`Xcode`或`Android Studio`打开`example/ios`或`example/android`中的工程。
-6. 运行工程。
+1. 使用`yarn`或`npm install`安装模块。
+1. 在iOS中, 需要在`ios`目录中运行`pod install`命令.
+1. 运行`npm run bundle:ios`或`npm run bundle:android`打包。
+1. 在一个单独的终端中运行`npm start`。
+1. 使用`Xcode`或`Android Studio`打开`example/ios`或`example/android`中的工程。
+1. 运行工程。
 
 ## 参考
 
