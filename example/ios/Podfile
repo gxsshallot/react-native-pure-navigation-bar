@@ -6,6 +6,7 @@ target "test" do
         'Core',
         'CxxBridge',
         'DevSupport',
+        'RCTAnimation',
         'RCTImage',
         'RCTNetwork',
         'RCTText',
