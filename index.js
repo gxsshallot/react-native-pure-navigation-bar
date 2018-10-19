@@ -62,10 +62,7 @@ const custom = {
     gobackFunc: null,
 };
 
-/**
- * Navigation Bar.
- */
-export default class NaviBar extends React.Component {
+export default class extends React.PureComponent {
     static propTypes = {
         title: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
         titleCenter: PropTypes.bool,
