@@ -2,8 +2,6 @@
 
 [实际截图](resource/ScreenShot.md)
 
-[修改记录](CHANGELOG.md)
-
 这是一个用于React-Native环境的可完全自定义的导航条，可以设置全局统一样式，并且将它以React组件的形式放在每一个页面中。
 
 ## 安装
