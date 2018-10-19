@@ -111,6 +111,7 @@ import {setCustomStyle} from 'react-native-pure-navigation-bar';
 | onLeft | 函数 | undefined | 左面按钮的点击事件，参数是按钮在leftElement中的索引值，从0开始，如果返回值是false并且按钮是回退按钮，则不进行默认的回退操作 |
 | onRight | 函数 | undefined | 右面按钮的点击事件，和onLeft格式相同 |
 | autoCloseKeyboard | 布尔值 | true | 在点击按钮时是否自动关闭键盘 |
+| autoHardwareBack | 布尔值 | true | 是否自动监听Android键盘回退事件 |
 | navigation | 导航对象 | null | 一个StackNavigation对象，用来回退按钮进行回退操作 |
 | style | 样式对象 | {} | 一个自定义的样式对象，里面的键参考Style部分 |
 

@@ -113,6 +113,7 @@ You can control the action or style of navigation bar by passing 'props'.
 | onLeft | function | undefined | Left button click function, param is button index in 'leftElement', from 0 on. If return is false and button is goback button, then do not call the default goback action |
 | onRight | function | undefined | Right button click function, same format as 'onLeft' |
 | autoCloseKeyboard | bool | true | Auto dismiss keyboard when click button or not |
+| autoHardwareBack | bool | true | Auto listen hardware back event on Android or not |
 | navigation | navigation object | null | A stack navigation object used for goback action |
 | style | style object | {} | A custom style which has highest priority, object's key is in following 'Style' section |
 

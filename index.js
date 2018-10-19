@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, TouchableOpacity, Image, Keyboard, StyleSheet} from 'react-native';
+import {View, Text, TouchableOpacity, Image, Keyboard, StyleSheet, BackHandler} from 'react-native';
 import PropTypes from 'prop-types';
 
 /**
@@ -83,6 +83,7 @@ export default class NaviBar extends React.Component {
         onLeft: PropTypes.func,
         onRight: PropTypes.func,
         autoCloseKeyboard: PropTypes.bool,
+        autoHardwareBack: PropTypes.bool,
         navigation: PropTypes.object,
         lockEnabled: PropTypes.bool,
         style: PropTypes.any,
@@ -95,6 +96,7 @@ export default class NaviBar extends React.Component {
         leftElement: GOBACK_BUTTON,
         rightElement: null,
         autoCloseKeyboard: true,
+        autoHardwareBack: true,
         navigation: null,
         lockEnabled: true,
         style: {},
@@ -108,6 +110,34 @@ export default class NaviBar extends React.Component {
             Right: 0,
         };
     }
+
+    componentDidMount() {
+        BackHandler.addEventListener('hardwareBackPress', this._clickBack);
+    }
+
+    componentWillUnmount() {
+        BackHandler.removeEventListener('hardwareBackPress', this._clickBack);
+    }
+
+    _clickBack = () => {
+        const search = (type) => {
+            const lowerType = type.toLowerCase();
+            const elementKey = lowerType + 'Element';
+            let element = this.props[elementKey];
+            if (!Array.isArray(element)) {
+                element = [element];
+            }
+            const index = element.findIndex(item => item === GOBACK_BUTTON);
+            if (index >= 0) {
+                this._clickButton(type, element[index], index);
+                return true;
+            } else {
+                return false;
+            }
+        };
+        search('Left') || search('Right');
+        return true;
+    };
 
     _combineStyle = (key, innerStyle = undefined) => {
         const style = Array.isArray(innerStyle) ? innerStyle : [innerStyle];
