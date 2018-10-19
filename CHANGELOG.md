@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.3.0
+
+* Update `react-native-iphone-x-helper` to fit new iPhone.
+
 ## 1.2.6
 
 * Move all dependencies except `react-native-iphone-x-helper` to `example/package.json`.
