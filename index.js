@@ -15,7 +15,7 @@ export const STATUSBAR_HEIGHT = isIos ? isIphoneX() ? 44 : 20 :  StatusBar.curre
  * Navigation bar height for different device type.
  * @type {number}
  */
-export const NAVBAR_HEIGHT = isIos ? 44 : 44;
+export const NAVBAR_HEIGHT = 44;
 
 /**
  * Total height (include status bar and navigation bar) for different device type.
@@ -232,24 +232,15 @@ export default class NaviBar extends React.Component {
             ? {left: edge, right: edge}
             : {};
         const seperatorLineStyle = hasSeperatorLine ? this._combineStyle('seperator') : {};
-        const topHeight = isIos || this.props.translucent ? STATUSBAR_HEIGHT : 0;
-        const containerStyle = this.props.translucent ? {
-            marginTop: topHeight,
-            height: NAVBAR_HEIGHT,
-        } : {
-            paddingTop: topHeight,
-            height: topHeight + NAVBAR_HEIGHT,
-        };
-        const titleCenterStyle = this.props.translucent ? {top: 0} : {top: topHeight};
         return (
-            <View style={this._combineStyle('container', [seperatorLineStyle, containerStyle])}>
+            <View style={this._combineStyle('container', seperatorLineStyle)}>
                 {this._renderButtons('Left')}
                 {!titleCenter ? (
                     <View style={this._combineStyle('titleContainer')}>
                         {this._renderTitleView()}
                     </View>
                 ) : (
-                    <View style={this._combineStyle('titleCenterContainer', [maxWidthCenterStyle, titleCenterStyle])}>
+                    <View style={this._combineStyle('titleCenterContainer', maxWidthCenterStyle)}>
                         {this._renderTitleView()}
                     </View>
                 )}
@@ -267,6 +258,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         backgroundColor: 'white',
+        height: NAVBAR_HEIGHT,
     },
     seperator: {
         borderBottomWidth: StyleSheet.hairlineWidth,
@@ -285,9 +277,11 @@ const styles = StyleSheet.create({
     },
     titleCenterContainer: {
         position: 'absolute',
+        top: 0,
         left: 0,
         right: 0,
         bottom: 0,
+        height: NAVBAR_HEIGHT,
         justifyContent: 'center',
         alignItems: 'center',
     },
