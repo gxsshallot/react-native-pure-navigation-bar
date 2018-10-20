@@ -242,13 +242,12 @@ export default class extends React.PureComponent {
         }
     };
 
-    _renderView = () => {
-        const {titleCenter, hasSeperatorLine} = this.props;
+    _renderView = (seperatorLineStyle) => {
+        const {titleCenter} = this.props;
         const edge = Math.max(this.state.Left, this.state.Right) + 15;
         const maxWidthCenterStyle = titleCenter
             ? {left: edge, right: edge}
             : {};
-        const seperatorLineStyle = hasSeperatorLine ? this._combineStyle('seperator') : {};
         return (
             <View style={this._combineStyle('container', seperatorLineStyle)}>
                 {this._renderButtons('Left')}
@@ -267,18 +266,19 @@ export default class extends React.PureComponent {
     };
 
     render() {
-        const {safeOptions} = this.props;
+        const {safeOptions, hasSeperatorLine} = this.props;
+        const seperatorLineStyle = hasSeperatorLine ? this._combineStyle('seperator') : {};
         if (safeOptions) {
             return (
                 <SafeAreaView
-                    style={this._combineStyle('safeview')}
+                    style={[this._combineStyle('safeview'), seperatorLineStyle]}
                     forceInset={safeOptions}
                 >
                     {this._renderView()}
                 </SafeAreaView>
             );
         } else {
-            return this._renderView();
+            return this._renderView(seperatorLineStyle);
         }
     }
 }
