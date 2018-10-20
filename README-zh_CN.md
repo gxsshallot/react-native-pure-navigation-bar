@@ -113,6 +113,8 @@ import {setCustomStyle} from 'react-native-pure-navigation-bar';
 | autoCloseKeyboard | 布尔值 | true | 在点击按钮时是否自动关闭键盘 |
 | autoHardwareBack | 布尔值 | true | 是否自动监听Android键盘回退事件 |
 | navigation | 导航对象 | null | 一个StackNavigation对象，用来回退按钮进行回退操作 |
+| lockEnabled | 布尔值 | true | 启用或禁用锁，防止按钮多次点击 |
+| safeOptions | 对象或false | 只禁用底部 | 导航条的安全区域配置，使用'false'禁用 |
 | style | 样式对象 | {} | 一个自定义的样式对象，里面的键参考Style部分 |
 
 ## 样式
@@ -127,11 +129,12 @@ import {setCustomStyle} from 'react-native-pure-navigation-bar';
 
 | 键名 | 描述 | 默认值 |
 | :-: | :-: | :-: |
-| container | 整个导航条 | justifyContent: 'space-between'<br>flexDirection: 'row'<br>alignItems: 'center'<br>paddingTop: STATUSBAR_HEIGHT<br>height: TOTALBAR_HEIGHT<br>backgroundColor: 'white' |
+| safeview | 安全区域视图 | backgroundColor: 'white' |
+| container | 整个导航条 | justifyContent: 'space-between'<br>flexDirection: 'row'<br>alignItems: 'center'<br>height: NAVBAR_HEIGHT<br>backgroundColor: 'white' |
 | seperator | 底部分隔线 | borderBottomWidth: StyleSheet.hairlineWidth<br>borderBottomColor: '#e6e6ea' |
 | title | 内部标题文本 | fontSize: 18<br>color: '#394352'<br>textAlign: 'center'<br>overflow: 'hidden' |
 | titleContainer | 不居中的标题容器 | flex: 1<br>justifyContent: 'center'<br>alignItems: 'center' |
-| titleCenterContainer | 居中的标题容器 | position: 'absolute'<br>left: 0<br>right: 0<br>top: STATUSBAR_HEIGHT<br>bottom: 0<br>justifyContent: 'center'<br>alignItems: 'center' |
+| titleCenterContainer | 居中的标题容器 | position: 'absolute'<br>left: 0<br>right: 0<br>top: 0<br>bottom: 0<br>justifyContent: 'center'<br>alignItems: 'center' |
 | buttonView | 文本按钮的可点击区域 | justifyContent: 'center'<br>alignItems: 'center'<br>minWidth: minWidth<br>height: NAVBAR_HEIGHT<br>paddingHorizontal: 8 |
 | buttonText | 文本按钮的文本 | color: '#394352'<br>fontSize: 17 |
 | leftView | 所有左侧按钮的区域 | flexDirection: 'row'<br>justifyContent: 'center'<br>alignItems: 'flex-start' |

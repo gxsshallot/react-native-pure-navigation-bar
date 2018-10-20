@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, TouchableOpacity, Image, Keyboard, StyleSheet, BackHandler} from 'react-native';
+import {View, Text, TouchableOpacity, Image, Keyboard, StyleSheet, BackHandler, SafeAreaView } from 'react-native';
 import PropTypes from 'prop-types';
 
 /**
@@ -83,6 +83,7 @@ export default class extends React.PureComponent {
         autoHardwareBack: PropTypes.bool,
         navigation: PropTypes.object,
         lockEnabled: PropTypes.bool,
+        safeOptions: PropTypes.object,
         style: PropTypes.any,
     };
 
@@ -96,6 +97,12 @@ export default class extends React.PureComponent {
         autoHardwareBack: true,
         navigation: null,
         lockEnabled: true,
+        safeOptions: {
+            top: 'always',
+            left: 'always',
+            right: 'always',
+            bottom: 'never',
+        },
         style: {},
     };
 
@@ -235,7 +242,7 @@ export default class extends React.PureComponent {
         }
     };
 
-    render() {
+    _renderView = () => {
         const {titleCenter, hasSeperatorLine} = this.props;
         const edge = Math.max(this.state.Left, this.state.Right) + 15;
         const maxWidthCenterStyle = titleCenter
@@ -257,12 +264,31 @@ export default class extends React.PureComponent {
                 {this._renderButtons('Right')}
             </View>
         );
+    };
+
+    render() {
+        const {safeOptions} = this.props;
+        if (safeOptions) {
+            return (
+                <SafeAreaView
+                    style={this._combineStyle('safeview')}
+                    forceInset={safeOptions}
+                >
+                    {this._renderView()}
+                </SafeAreaView>
+            );
+        } else {
+            return this._renderView();
+        }
     }
 }
 
 const minWidth = 30;
 
 const styles = StyleSheet.create({
+    safeview: {
+        backgroundColor: 'white',
+    },
     container: {
         justifyContent: 'space-between',
         flexDirection: 'row',
@@ -287,10 +313,10 @@ const styles = StyleSheet.create({
     },
     titleCenterContainer: {
         position: 'absolute',
-        top: 0,
         left: 0,
         right: 0,
         bottom: 0,
+        top: 0,
         height: NAVBAR_HEIGHT,
         justifyContent: 'center',
         alignItems: 'center',

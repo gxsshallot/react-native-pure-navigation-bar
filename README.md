@@ -115,6 +115,8 @@ You can control the action or style of navigation bar by passing 'props'.
 | autoCloseKeyboard | bool | true | Auto dismiss keyboard when click button or not |
 | autoHardwareBack | bool | true | Auto listen hardware back event on Android or not |
 | navigation | navigation object | null | A stack navigation object used for goback action |
+| lockEnabled | bool | true | Enable or disable button clicking lock to avoid clicking multi times |
+| safeOptions | object or false | only disable bottom | Safe area option of navigation bar. Use 'false' to disable |
 | style | style object | {} | A custom style which has highest priority, object's key is in following 'Style' section |
 
 ## Style
@@ -129,11 +131,12 @@ All the key you can customize in Global or Custom settings list below:
 
 | Key | Description | DefaultValue |
 | :-: | :-: | :-: |
-| container | The whole navigation bar | justifyContent: 'space-between'<br>flexDirection: 'row'<br>alignItems: 'center'<br>paddingTop: STATUSBAR_HEIGHT<br>height: TOTALBAR_HEIGHT<br>backgroundColor: 'white' |
+| safeview | Safe area view | backgroundColor: 'white' |
+| container | The whole navigation bar | justifyContent: 'space-between'<br>flexDirection: 'row'<br>alignItems: 'center'<br>height: NAVBAR_HEIGHT<br>backgroundColor: 'white' |
 | seperator | Seperator line at the bottom | borderBottomWidth: StyleSheet.hairlineWidth<br>borderBottomColor: '#e6e6ea' |
 | title | Inner title text | fontSize: 18<br>color: '#394352'<br>textAlign: 'center'<br>overflow: 'hidden' |
 | titleContainer | Title container off center | flex: 1<br>justifyContent: 'center'<br>alignItems: 'center' |
-| titleCenterContainer | Title container at center | position: 'absolute'<br>left: 0<br>right: 0<br>top: STATUSBAR_HEIGHT<br>bottom: 0<br>justifyContent: 'center'<br>alignItems: 'center' |
+| titleCenterContainer | Title container at center | position: 'absolute'<br>left: 0<br>right: 0<br>top: 0<br>bottom: 0<br>justifyContent: 'center'<br>alignItems: 'center' |
 | buttonView | Text-type button touchable view | justifyContent: 'center'<br>alignItems: 'center'<br>minWidth: minWidth<br>height: NAVBAR_HEIGHT<br>paddingHorizontal: 8 |
 | buttonText | Text-type button text | color: '#394352'<br>fontSize: 17 |
 | leftView | Left view contains all left buttons | flexDirection: 'row'<br>justifyContent: 'center'<br>alignItems: 'flex-start' |
