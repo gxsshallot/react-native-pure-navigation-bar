@@ -4,6 +4,11 @@
 
 这是一个用于React-Native环境的可完全自定义的导航条，可以设置全局统一样式，并且将它以React组件的形式放在每一个页面中。
 
+目前支持:
+
+* 竖屏或横屏模式。
+* 使用`react-navigation`处理自动回退操作.
+
 ## 安装
 
 使用Yarn安装：
@@ -64,38 +69,31 @@ render() {
 
 ## 常量
 
-可以像这样导入导航条高度的常量:
-
-```jsx
-import {NAVBAR_HEIGHT} from 'react-native-pure-navigation-bar';
-```
-
-`NAVBAR_HEIGHT`总是44。
-
-其他常量:
-
 | 名称 | 描述 |
 | :-: | :-: |
+| NAVBAR_HEIGHT | 默认导航条高度 |
 | GOBACK_BUTTON | 可以在leftElement或者rightElement中设置的常量，用来标识这是一个特殊的回退按钮 |
 | GOBACK_IMAGE | 回退按钮的默认图片 |
 
 ## 全局设置
 
-可以在启动的时候改变导航条的高度，包括导航条样式，回退按钮的图片和操作。
+可以在启动的时候改变导航条的高度，包括导航条样式、最小按钮宽度和回退按钮的图片。
 
-首先，需要导入方法:
+你可以像这样设置:
 
 ```jsx
-import {setCustomStyle} from 'react-native-pure-navigation-bar';
+import {NaviBarOptions} from 'react-native-pure-navigation-bar';
+
+NaviBarOptions.xxx = yyy;
 ```
 
-所有方法如下所示(没有返回值):
+选项:
 
-| 名称 | 描述 | 参数格式 |
+| Name | Description | Example |
 | :-: | :-: | :-: |
-| setCustomStyle | 设置所有的全局样式，包括导航条、按钮、标题等 | (key, style):<br>key: 一个样式的键，可以参考下面的Style部分<br>style: 一个StyleSheet的样式或者只是一个css对象 |
-| setGlobalGobackFunc | 设置回退按钮的操作 | (func):<br>func: 一个函数，没有参数和返回值 |
-| setGlobalGobackImage | 设置回退按钮的图片 | (image):<br>image: 本地图片或者一个URL字符串的远程图片 |
+| style | 设置所有的全局样式，包括导航条、按钮、标题等 | NaviBarOptions.style.container = {...} |
+| buttonWidth | 最小按钮宽度 | NaviBarOptions.buttonWidth = 20 |
+| gobackImage | 回退按钮的图片 | NaviBarOptions.gobackImage = {uri: "..."} / require('...') |
 
 ## 自定义设置
 
@@ -112,7 +110,6 @@ import {setCustomStyle} from 'react-native-pure-navigation-bar';
 | onRight | 函数 | undefined | 右面按钮的点击事件，和onLeft格式相同 |
 | autoCloseKeyboard | 布尔值 | true | 在点击按钮时是否自动关闭键盘 |
 | autoHardwareBack | 布尔值 | true | 是否自动监听Android键盘回退事件 |
-| navigation | 导航对象 | null | 一个StackNavigation对象，用来回退按钮进行回退操作 |
 | lockEnabled | 布尔值 | true | 启用或禁用锁，防止按钮多次点击 |
 | safeOptions | 对象或false | 只禁用底部 | 导航条的安全区域配置，使用'false'禁用 |
 | style | 样式对象 | {} | 一个自定义的样式对象，里面的键参考Style部分 |
@@ -135,11 +132,11 @@ import {setCustomStyle} from 'react-native-pure-navigation-bar';
 | title | 内部标题文本 | fontSize: 18<br>color: '#394352'<br>textAlign: 'center'<br>overflow: 'hidden' |
 | titleContainer | 不居中的标题容器 | flex: 1<br>justifyContent: 'center'<br>alignItems: 'center' |
 | titleCenterContainer | 居中的标题容器 | position: 'absolute'<br>left: 0<br>right: 0<br>top: 0<br>bottom: 0<br>justifyContent: 'center'<br>alignItems: 'center' |
-| buttonView | 文本按钮的可点击区域 | justifyContent: 'center'<br>alignItems: 'center'<br>minWidth: minWidth<br>height: NAVBAR_HEIGHT<br>paddingHorizontal: 8 |
+| buttonView | 文本按钮的可点击区域 | justifyContent: 'center'<br>alignItems: 'center'<br>minWidth: NaviBarOptions.buttonWidth<br>height: NAVBAR_HEIGHT<br>paddingHorizontal: 8 |
 | buttonText | 文本按钮的文本 | color: '#394352'<br>fontSize: 17 |
 | leftView | 所有左侧按钮的区域 | flexDirection: 'row'<br>justifyContent: 'center'<br>alignItems: 'flex-start' |
 | rightView | 所有右侧按钮的区域 | flexDirection: 'row'<br>justifyContent: 'center'<br>alignItems: 'flex-end' |
-| gobackView | 回退按钮的可点击区域 | minWidth: minWidth<br>height: NAVBAR_HEIGHT<br>justifyContent: 'center'<br>paddingHorizontal: 16 |
+| gobackView | 回退按钮的可点击区域 | minWidth: NaviBarOptions.buttonWidth<br>height: NAVBAR_HEIGHT<br>justifyContent: 'center'<br>paddingHorizontal: 16 |
 | gobackImage | 回退按钮的图片 | width: 18<br>height: 16 |
 
 ## 样例工程

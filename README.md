@@ -6,6 +6,11 @@
 
 Here is a fully customizable navigation bar in React-Native. You can set the global unified style of navigation bar and add it as a react component in each page.
 
+It supports:
+
+* Portrait and Landscape mode.
+* Auto go back with `react-navigation` installed.
+
 ## Install
 
 Install by Yarn:
@@ -66,38 +71,31 @@ This navigation bar is only a component with 'relative' position, not 'absolute'
 
 ## Constant
 
-You can import navigation bar height constant like this:
-
-```jsx
-import {NAVBAR_HEIGHT} from 'react-native-pure-navigation-bar';
-```
-
-`NAVBAR_HEIGHT` is always 44.
-
-Other constant:
-
 | Name | Description |
 | :-: | :-: |
+| NAVBAR_HEIGHT | Default navigation bar height |
 | GOBACK_BUTTON | An identifier when you set 'leftElement' or 'rightElement' to identify the button as GoBack button |
 | GOBACK_IMAGE | An default image for GOBACK_BUTTON |
 
 ## Global Settings
 
-You can change the navigation bar settings at the startup, include navigation bar style, GoBack button image and function.
+You can change the navigation bar settings at the startup, include navigation bar style, button minimum width and GoBack button image.
 
-First, you should import methed from library:
+You can set options like this:
 
 ```jsx
-import {setCustomStyle} from 'react-native-pure-navigation-bar';
+import {NaviBarOptions} from 'react-native-pure-navigation-bar';
+
+NaviBarOptions.xxx = yyy;
 ```
 
-All the method list below (no return value):
+Options:
 
-| Name | Description | Param Format |
+| Name | Description | Example |
 | :-: | :-: | :-: |
-| setCustomStyle | Set all the style include bar or button or title | (key, style):<br>key: A style key which you can see the following 'Style' section<br>style: A style object created by StyleSheet or only an javascript object |
-| setGlobalGobackFunc | Set GoBack button function | (func):<br>func: A function with no param and no return value|
-| setGlobalGobackImage | Set GoBack button image | (image):<br>image: A number which means a local image or a string which is a remote image url |
+| style | Set all the style include bar or button or title | NaviBarOptions.style.container = {...} |
+| buttonWidth | Minimum button width | NaviBarOptions.buttonWidth = 20 |
+| gobackImage | GoBack button image | NaviBarOptions.gobackImage = {uri: "..."} / require('...') |
 
 ## Custom Setting
 
@@ -114,7 +112,6 @@ You can control the action or style of navigation bar by passing 'props'.
 | onRight | function | undefined | Right button click function, same format as 'onLeft' |
 | autoCloseKeyboard | bool | true | Auto dismiss keyboard when click button or not |
 | autoHardwareBack | bool | true | Auto listen hardware back event on Android or not |
-| navigation | navigation object | null | A stack navigation object used for goback action |
 | lockEnabled | bool | true | Enable or disable button clicking lock to avoid clicking multi times |
 | safeOptions | object or false | only disable bottom | Safe area option of navigation bar. Use 'false' to disable |
 | style | style object | {} | A custom style which has highest priority, object's key is in following 'Style' section |
@@ -137,11 +134,11 @@ All the key you can customize in Global or Custom settings list below:
 | title | Inner title text | fontSize: 18<br>color: '#394352'<br>textAlign: 'center'<br>overflow: 'hidden' |
 | titleContainer | Title container off center | flex: 1<br>justifyContent: 'center'<br>alignItems: 'center' |
 | titleCenterContainer | Title container at center | position: 'absolute'<br>left: 0<br>right: 0<br>top: 0<br>bottom: 0<br>justifyContent: 'center'<br>alignItems: 'center' |
-| buttonView | Text-type button touchable view | justifyContent: 'center'<br>alignItems: 'center'<br>minWidth: minWidth<br>height: NAVBAR_HEIGHT<br>paddingHorizontal: 8 |
+| buttonView | Text-type button touchable view | justifyContent: 'center'<br>alignItems: 'center'<br>minWidth: NaviBarOptions.buttonWidth<br>height: NAVBAR_HEIGHT<br>paddingHorizontal: 8 |
 | buttonText | Text-type button text | color: '#394352'<br>fontSize: 17 |
 | leftView | Left view contains all left buttons | flexDirection: 'row'<br>justifyContent: 'center'<br>alignItems: 'flex-start' |
 | rightView | Right view contains all right buttons | flexDirection: 'row'<br>justifyContent: 'center'<br>alignItems: 'flex-end' |
-| gobackView | Goback button touchable view | minWidth: minWidth<br>height: NAVBAR_HEIGHT<br>justifyContent: 'center'<br>paddingHorizontal: 16 |
+| gobackView | Goback button touchable view | minWidth: NaviBarOptions.buttonWidth<br>height: NAVBAR_HEIGHT<br>justifyContent: 'center'<br>paddingHorizontal: 16 |
 | gobackImage | Goback button image | width: 18<br>height: 16 |
 
 ## Example Project

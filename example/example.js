@@ -1,6 +1,27 @@
 import React from 'react';
 import { AppRegistry, StyleSheet, Text, TouchableOpacity, SafeAreaView, View } from 'react-native';
 import NaviBar, { GOBACK_BUTTON } from 'react-native-pure-navigation-bar';
+import { createStackNavigator } from 'react-navigation';
+
+class WelcomePage extends React.Component {
+    _jump = () => {
+        this.props.navigation.navigate('Example', {});
+    };
+
+    render() {
+        return (
+            <SafeAreaView style={{flex: 1}}>
+                <TouchableOpacity style={{flex: 1}} onPress={this._jump}>
+                    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+                        <Text style={{fontSize: 28, color: 'red',textAlign: 'center'}}>
+                            {'Jump To Test'}
+                        </Text>
+                    </View>
+                </TouchableOpacity>
+            </SafeAreaView>
+        )
+    }
+}
 
 class Example extends React.Component {
     constructor(props) {
@@ -31,14 +52,8 @@ class Example extends React.Component {
     };
 
     render() {
-        const option = {
-            top: 'never',
-            bottom: 'never',
-            left: 'never',
-            right: 'never',
-        };
         return (
-            <View forceInset={option} style={styles.container}>
+            <View style={styles.container}>
                 <NaviBar
                     title={this.state.title}
                     titleCenter={this.state.titleCenter}
@@ -90,4 +105,11 @@ const styles = StyleSheet.create({
     },
 });
 
-AppRegistry.registerComponent('test', () => Example);
+const navigator = createStackNavigator({
+    Welcome: {screen: WelcomePage},
+    Example: {screen: Example}
+}, {
+    headerMode: 'none',
+});
+
+AppRegistry.registerComponent('test', () => navigator);

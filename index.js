@@ -1,92 +1,20 @@
 import React from 'react';
 import {View, Text, TouchableOpacity, Image, Keyboard, StyleSheet, BackHandler, SafeAreaView } from 'react-native';
-import PropTypes from 'prop-types';
+import { withNavigation } from 'react-navigation'
 
-/**
- * Navigation bar height for different device type.
- * @type {number}
- */
 export const NAVBAR_HEIGHT = 44;
 
-/**
- * Goback button identifier.
- * @type {string}
- */
 export const GOBACK_BUTTON = '__gobackbutton__';
 
-/**
- * Goback button image.
- * @type {number}
- */
 export const GOBACK_IMAGE = require('./image/nav_back.png');
 
-/**
- * Set global custom style.
- * @param key a string which is also a key of 'styles' object below
- * @param style an object to override the default style
- */
-export const setCustomStyle = (key, style) => {
-    if (styles[key]) {
-        custom.style[key] = style;
-    } else {
-        console.error('Navigation bar global style key must be one of [ ' + Object.keys(styles).join(' ') + ' ]');
-    }
-};
-
-/**
- * Set global goback function.
- * So you donot need to pass 'navigation' property each time.
- * @param func a function without any params
- */
-export const setGlobalGobackFunc = (func) => {
-    custom.gobackFunc = func;
-};
-
-/**
- * Set global goback image.
- * @param image a local image of url
- */
-export const setGlobalGobackImage = (image) => {
-    if (typeof image === 'number') {
-        custom.gobackImage = image;
-    } else if (typeof image === 'string') {
-        custom.gobackImage = {uri: image};
-    } else {
-        console.error('Global goback image is wrong');
-    }
-};
-
-const custom = {
+export const NaviBarOptions = {
     style: {},
+    buttonWidth: 30,
     gobackImage: GOBACK_IMAGE,
-    gobackFunc: null,
 };
 
-export default class extends React.PureComponent {
-    static propTypes = {
-        title: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-        titleCenter: PropTypes.bool,
-        hasSeperatorLine: PropTypes.bool,
-        leftElement: PropTypes.oneOfType([
-            PropTypes.string,
-            PropTypes.element,
-            PropTypes.array
-        ]),
-        rightElement: PropTypes.oneOfType([
-            PropTypes.string,
-            PropTypes.element,
-            PropTypes.array
-        ]),
-        onLeft: PropTypes.func,
-        onRight: PropTypes.func,
-        autoCloseKeyboard: PropTypes.bool,
-        autoHardwareBack: PropTypes.bool,
-        navigation: PropTypes.object,
-        lockEnabled: PropTypes.bool,
-        safeOptions: PropTypes.object,
-        style: PropTypes.any,
-    };
-
+class NaviBar extends React.PureComponent {
     static defaultProps = {
         title: '',
         titleCenter: true,
@@ -95,7 +23,6 @@ export default class extends React.PureComponent {
         rightElement: null,
         autoCloseKeyboard: true,
         autoHardwareBack: true,
-        navigation: null,
         lockEnabled: true,
         safeOptions: {
             top: 'always',
@@ -145,7 +72,7 @@ export default class extends React.PureComponent {
 
     _combineStyle = (key, innerStyle = undefined) => {
         const style = Array.isArray(innerStyle) ? innerStyle : [innerStyle];
-        return [styles[key], ...style, custom.style[key], this.props.style[key]];
+        return [styles[key], ...style, NaviBarOptions.style[key], this.props.style[key]];
     };
 
     _clickButton = (clicktype, identifier, index) => {
@@ -164,11 +91,7 @@ export default class extends React.PureComponent {
         const doDefaultAction = this.props[clickKey] && this.props[clickKey](index);
         // Goback Button, use global action or navigation's goBack
         if (identifier === GOBACK_BUTTON && doDefaultAction !== false) {
-            if (this.props.navigation) {
-                this.props.navigation.goBack();
-            } else {
-                custom.gobackFunc && custom.gobackFunc();
-            }
+            this.props.navigation && this.props.navigation.goBack();
         }
         if (lockEnabled) {
             this.locks[lockKey] = false;
@@ -177,13 +100,17 @@ export default class extends React.PureComponent {
 
     _renderButton = (type, item, index) => {
         const func = this._clickButton.bind(this, type, item, index);
-        const specStyle = {marginHorizontal: 5, ['margin' + type]: 0};
+        const specStyle = {
+            marginHorizontal: 5,
+            ['margin' + type]: 0,
+            minWidth: NaviBarOptions.buttonWidth,
+        };
         const buttonViewStyle = this._combineStyle('buttonView', specStyle);
         if (item === GOBACK_BUTTON) {
             return (
                 <TouchableOpacity key={index} onPress={func} style={this._combineStyle('gobackView', specStyle)}>
                     <Image
-                        source={custom.gobackImage}
+                        source={NaviBarOptions.gobackImage}
                         style={this._combineStyle('gobackImage')}
                     />
                 </TouchableOpacity>
@@ -283,7 +210,7 @@ export default class extends React.PureComponent {
     }
 }
 
-const minWidth = 30;
+export default withNavigation(NaviBar);
 
 const styles = StyleSheet.create({
     safeview: {
@@ -325,7 +252,6 @@ const styles = StyleSheet.create({
     buttonView: {
         justifyContent: 'center',
         alignItems: 'center',
-        minWidth: minWidth,
         height: NAVBAR_HEIGHT,
         paddingHorizontal: 8,
     },
@@ -344,7 +270,6 @@ const styles = StyleSheet.create({
         alignItems: 'flex-end',
     },
     gobackView: {
-        minWidth: minWidth,
         height: NAVBAR_HEIGHT,
         justifyContent: 'center',
         paddingHorizontal: 16,
