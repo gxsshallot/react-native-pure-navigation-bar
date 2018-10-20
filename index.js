@@ -287,6 +287,7 @@ const minWidth = 30;
 
 const styles = StyleSheet.create({
     safeview: {
+        flex: 0,
         backgroundColor: 'white',
     },
     container: {
