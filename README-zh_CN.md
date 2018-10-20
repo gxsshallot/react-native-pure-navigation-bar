@@ -31,13 +31,13 @@ import NaviBar from 'react-native-pure-navigation-bar';
 ```jsx
 render() {
   return (
-    <SafeAreaView style={{flex: 1}}>
+    <View style={{flex: 1}}>
       <NaviBar
         title='自定义标题'
         {/* 如果想定制，可以传入props */}
       />
       {/* 其他组件 */}
-    </SafeAreaView>
+    </View>
   );
 }
 ```
@@ -47,7 +47,7 @@ render() {
 ```jsx
 render() {
   return (
-    <SafeAreaView style={{flex: 1}}>
+    <View style={{flex: 1}}>
       {this.state.showNaviBar && (
         <NaviBar
           title='自定义标题'
@@ -55,7 +55,7 @@ render() {
         />
       )}
       {/* 其他组件 */}
-    </SafeAreaView>
+    </View>
   );
 }
 ```
@@ -129,7 +129,7 @@ import {setCustomStyle} from 'react-native-pure-navigation-bar';
 
 | 键名 | 描述 | 默认值 |
 | :-: | :-: | :-: |
-| safeview | 安全区域视图 | backgroundColor: 'white' |
+| safeview | 安全区域视图 | flex: 0<br>backgroundColor: 'white' |
 | container | 整个导航条 | justifyContent: 'space-between'<br>flexDirection: 'row'<br>alignItems: 'center'<br>height: NAVBAR_HEIGHT<br>backgroundColor: 'white' |
 | seperator | 底部分隔线 | borderBottomWidth: StyleSheet.hairlineWidth<br>borderBottomColor: '#e6e6ea' |
 | title | 内部标题文本 | fontSize: 18<br>color: '#394352'<br>textAlign: 'center'<br>overflow: 'hidden' |

@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppRegistry, StyleSheet, Text, TouchableOpacity, SafeAreaView } from 'react-native';
+import { AppRegistry, StyleSheet, Text, TouchableOpacity, SafeAreaView, View } from 'react-native';
 import NaviBar, { GOBACK_BUTTON } from 'react-native-pure-navigation-bar';
 
 class Example extends React.Component {
@@ -31,8 +31,14 @@ class Example extends React.Component {
     };
 
     render() {
+        const option = {
+            top: 'never',
+            bottom: 'never',
+            left: 'never',
+            right: 'never',
+        };
         return (
-            <SafeAreaView style={styles.container}>
+            <View forceInset={option} style={styles.container}>
                 <NaviBar
                     title={this.state.title}
                     titleCenter={this.state.titleCenter}
@@ -55,7 +61,7 @@ class Example extends React.Component {
                 {this._renderItem('titleStyle', {backgroundColor: 'green'}, undefined, 'Make Title Normal', 'Make Title Green')}
                 {this._renderItem('leftStyle', {backgroundColor: 'yellow'}, undefined, 'Make Left Normal', 'Make Left Yellow')}
                 {this._renderItem('rightStyle', {backgroundColor: 'red'}, undefined, 'Make Right Normal', 'Make Right Red')}
-            </SafeAreaView>
+            </View>
         );
     }
 }

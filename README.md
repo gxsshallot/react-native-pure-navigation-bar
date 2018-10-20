@@ -33,13 +33,13 @@ Then add component in `render()` function:
 ```jsx
 render() {
   return (
-    <SafeAreaView style={{flex: 1}}>
+    <View style={{flex: 1}}>
       <NaviBar
         title='CustomTitle'
         {/* other properties if you want to specify it */}
       />
       {/* other components */}
-    </SafeAreaView>
+    </View>
   );
 }
 ```
@@ -49,7 +49,7 @@ If you want to hide or show navigation bar dynamiclly, you can write these code:
 ```jsx
 render() {
   return (
-    <SafeAreaView style={{flex: 1}}>
+    <View style={{flex: 1}}>
       {this.state.showNaviBar && (
         <NaviBar
           title='CustomTitle'
@@ -57,7 +57,7 @@ render() {
         />
       )}
       {/* other components */}
-    </SafeAreaView>
+    </View>
   );
 }
 ```
@@ -131,7 +131,7 @@ All the key you can customize in Global or Custom settings list below:
 
 | Key | Description | DefaultValue |
 | :-: | :-: | :-: |
-| safeview | Safe area view | backgroundColor: 'white' |
+| safeview | Safe area view | flex: 0<br>backgroundColor: 'white' |
 | container | The whole navigation bar | justifyContent: 'space-between'<br>flexDirection: 'row'<br>alignItems: 'center'<br>height: NAVBAR_HEIGHT<br>backgroundColor: 'white' |
 | seperator | Seperator line at the bottom | borderBottomWidth: StyleSheet.hairlineWidth<br>borderBottomColor: '#e6e6ea' |
 | title | Inner title text | fontSize: 18<br>color: '#394352'<br>textAlign: 'center'<br>overflow: 'hidden' |
