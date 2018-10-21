@@ -12,31 +12,49 @@
 ### iPhone 8 Plus
 
 <p float="left">
+
 <img src="/resource/1-8P.png" width="18%">
+
 <img src="/resource/2-8P.png" width="18%">
+
 <img src="/resource/3-8P.png" width="18%">
+
 <img src="/resource/4-8P.png" width="18%">
+
 <img src="/resource/5-8P.png" width="18%">
+
 </p>
 
 ### iPhone X
 
 <p float="left">
+
 <img src="/resource/1-X.png" width="18%">
+
 <img src="/resource/2-X.png" width="18%">
+
 <img src="/resource/3-X.png" width="18%">
+
 <img src="/resource/4-X.png" width="18%">
+
 <img src="/resource/5-X.png" width="18%">
+
 </p>
 
 ### Android
 
 <p float="left">
+
 <img src="/resource/1-A.jpg" width="18%">
+
 <img src="/resource/2-A.jpg" width="18%">
+
 <img src="/resource/3-A.jpg" width="18%">
+
 <img src="/resource/4-A.jpg" width="18%">
+
 <img src="/resource/5-A.jpg" width="18%">
+
 </p>
 
 ## 安装
