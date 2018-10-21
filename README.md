@@ -25,6 +25,12 @@ Install by NPM:
 npm install --save react-native-pure-navigation-bar
 ```
 
+You should also install the package in `peerDependencies`:
+
+* react
+* react-native
+* react-navigation
+
 ## Usage
 
 First import in the file:

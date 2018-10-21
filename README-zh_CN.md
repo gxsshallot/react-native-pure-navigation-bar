@@ -23,6 +23,12 @@ yarn add react-native-pure-navigation-bar
 npm install --save react-native-pure-navigation-bar
 ```
 
+你应该同样安装来自`peerDependencies`的依赖库:
+
+* react
+* react-native
+* react-navigation
+
 ## 使用
 
 首先在文件中导入：
