@@ -1,8 +1,6 @@
 # react-native-pure-navigation-bar
 
-[Chinese README](https://github.com/gaoxiaosong/react-native-pure-navigation-bar/blob/master/README-zh_CN.md)
-
-[ScreenShots](https://github.com/gaoxiaosong/react-native-pure-navigation-bar/blob/master/resource/ScreenShot.md)
+[中文说明](README-zh_CN.md)
 
 Here is a fully customizable navigation bar in React-Native. You can set the global unified style of navigation bar and add it as a react component in each page.
 
@@ -10,6 +8,38 @@ It supports:
 
 * Portrait and Landscape mode.
 * Auto go back with `react-navigation` installed.
+
+## ScreenShots
+
+### iPhone 8 Plus
+
+<p float="left">
+<img src="/resource/1-8P.png" width="18%">
+<img src="/resource/2-8P.png" width="18%">
+<img src="/resource/3-8P.png" width="18%">
+<img src="/resource/4-8P.png" width="18%">
+<img src="/resource/5-8P.png" width="18%">
+</p>
+
+### iPhone X
+
+<p float="left">
+<img src="/resource/1-X.png" width="18%">
+<img src="/resource/2-X.png" width="18%">
+<img src="/resource/3-X.png" width="18%">
+<img src="/resource/4-X.png" width="18%">
+<img src="/resource/5-X.png" width="18%">
+</p>
+
+### Android
+
+<p float="left">
+<img src="/resource/1-A.jpg" width="18%">
+<img src="/resource/2-A.jpg" width="18%">
+<img src="/resource/3-A.jpg" width="18%">
+<img src="/resource/4-A.jpg" width="18%">
+<img src="/resource/5-A.jpg" width="18%">
+</p>
 
 ## Install
 

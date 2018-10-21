@@ -1,13 +1,43 @@
 # react-native-pure-navigation-bar
 
-[实际截图](resource/ScreenShot.md)
-
 这是一个用于React-Native环境的可完全自定义的导航条，可以设置全局统一样式，并且将它以React组件的形式放在每一个页面中。
 
 目前支持:
 
 * 竖屏或横屏模式。
 * 使用`react-navigation`处理自动回退操作.
+
+## 实际截图
+
+### iPhone 8 Plus
+
+<p float="left">
+<img src="/resource/1-8P.png" width="18%">
+<img src="/resource/2-8P.png" width="18%">
+<img src="/resource/3-8P.png" width="18%">
+<img src="/resource/4-8P.png" width="18%">
+<img src="/resource/5-8P.png" width="18%">
+</p>
+
+### iPhone X
+
+<p float="left">
+<img src="/resource/1-X.png" width="18%">
+<img src="/resource/2-X.png" width="18%">
+<img src="/resource/3-X.png" width="18%">
+<img src="/resource/4-X.png" width="18%">
+<img src="/resource/5-X.png" width="18%">
+</p>
+
+### Android
+
+<p float="left">
+<img src="/resource/1-A.jpg" width="18%">
+<img src="/resource/2-A.jpg" width="18%">
+<img src="/resource/3-A.jpg" width="18%">
+<img src="/resource/4-A.jpg" width="18%">
+<img src="/resource/5-A.jpg" width="18%">
+</p>
 
 ## 安装
 
