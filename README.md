@@ -180,20 +180,20 @@ The component style is consist of three part:
 
 All the key you can customize in Global or Custom settings list below:
 
-| Key | Description | DefaultValue |
-| :-: | :-: | :-: |
-| safeview | Safe area view | flex: 0<br>backgroundColor: 'white' |
-| container | The whole navigation bar | justifyContent: 'space-between'<br>flexDirection: 'row'<br>alignItems: 'center'<br>height: NAVBAR_HEIGHT<br>backgroundColor: 'white' |
-| seperator | Seperator line at the bottom | borderBottomWidth: StyleSheet.hairlineWidth<br>borderBottomColor: '#e6e6ea' |
-| title | Inner title text | fontSize: 18<br>color: '#394352'<br>textAlign: 'center'<br>overflow: 'hidden' |
-| titleContainer | Title container off center | flex: 1<br>justifyContent: 'center'<br>alignItems: 'center' |
-| titleCenterContainer | Title container at center | position: 'absolute'<br>left: 0<br>right: 0<br>top: 0<br>bottom: 0<br>justifyContent: 'center'<br>alignItems: 'center' |
-| buttonView | Text-type button touchable view | justifyContent: 'center'<br>alignItems: 'center'<br>minWidth: NaviBarOptions.buttonWidth<br>height: NAVBAR_HEIGHT<br>paddingHorizontal: 8 |
-| buttonText | Text-type button text | color: '#394352'<br>fontSize: 17 |
-| leftView | Left view contains all left buttons | flexDirection: 'row'<br>justifyContent: 'center'<br>alignItems: 'flex-start' |
-| rightView | Right view contains all right buttons | flexDirection: 'row'<br>justifyContent: 'center'<br>alignItems: 'flex-end' |
-| gobackView | Goback button touchable view | minWidth: NaviBarOptions.buttonWidth<br>height: NAVBAR_HEIGHT<br>justifyContent: 'center'<br>paddingHorizontal: 16 |
-| gobackImage | Goback button image | width: 18<br>height: 16 |
+| Key | Description |
+| :-: | :-: |
+| safeview | Safe area view |
+| container | The whole navigation bar |
+| seperator | Seperator line at the bottom |
+| title | Inner title text |
+| titleContainer | Title container off center |
+| titleCenterContainer | Title container at center |
+| buttonView | Text-type button touchable view |
+| buttonText | Text-type button text |
+| leftView | Left view contains all left buttons |
+| rightView | Right view contains all right buttons |
+| gobackView | Goback button touchable view |
+| gobackImage | Goback button image |
 
 ## Example Project
 
@@ -206,7 +206,3 @@ You can open the example project by following steps:
 1. Run `npm start` in a seperate terminal.
 1. Use `Xcode` or `Android Studio` to open the project in `example/ios` or `example/android`.
 1. Run the project.
-
-## Reference
-
-Please see this repository: [react-native-items](https://github.com/gaoxiaosong/react-native-items).

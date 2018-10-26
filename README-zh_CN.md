@@ -178,20 +178,20 @@ NaviBarOptions.xxx = yyy;
 
 在全局设置或者用户自定义设置部分，你可以自定义的样式的键如下所示:
 
-| 键名 | 描述 | 默认值 |
-| :-: | :-: | :-: |
-| safeview | 安全区域视图 | flex: 0<br>backgroundColor: 'white' |
-| container | 整个导航条 | justifyContent: 'space-between'<br>flexDirection: 'row'<br>alignItems: 'center'<br>height: NAVBAR_HEIGHT<br>backgroundColor: 'white' |
-| seperator | 底部分隔线 | borderBottomWidth: StyleSheet.hairlineWidth<br>borderBottomColor: '#e6e6ea' |
-| title | 内部标题文本 | fontSize: 18<br>color: '#394352'<br>textAlign: 'center'<br>overflow: 'hidden' |
-| titleContainer | 不居中的标题容器 | flex: 1<br>justifyContent: 'center'<br>alignItems: 'center' |
-| titleCenterContainer | 居中的标题容器 | position: 'absolute'<br>left: 0<br>right: 0<br>top: 0<br>bottom: 0<br>justifyContent: 'center'<br>alignItems: 'center' |
-| buttonView | 文本按钮的可点击区域 | justifyContent: 'center'<br>alignItems: 'center'<br>minWidth: NaviBarOptions.buttonWidth<br>height: NAVBAR_HEIGHT<br>paddingHorizontal: 8 |
-| buttonText | 文本按钮的文本 | color: '#394352'<br>fontSize: 17 |
-| leftView | 所有左侧按钮的区域 | flexDirection: 'row'<br>justifyContent: 'center'<br>alignItems: 'flex-start' |
-| rightView | 所有右侧按钮的区域 | flexDirection: 'row'<br>justifyContent: 'center'<br>alignItems: 'flex-end' |
-| gobackView | 回退按钮的可点击区域 | minWidth: NaviBarOptions.buttonWidth<br>height: NAVBAR_HEIGHT<br>justifyContent: 'center'<br>paddingHorizontal: 16 |
-| gobackImage | 回退按钮的图片 | width: 18<br>height: 16 |
+| 键名 | 描述 |
+| :-: | :-: |
+| safeview | 安全区域视图 |
+| container | 整个导航条 |
+| seperator | 底部分隔线 |
+| title | 内部标题文本 |
+| titleContainer | 不居中的标题容器 |
+| titleCenterContainer | 居中的标题容器 |
+| buttonView | 文本按钮的可点击区域 |
+| buttonText | 文本按钮的文本 |
+| leftView | 所有左侧按钮的区域 |
+| rightView | 所有右侧按钮的区域 |
+| gobackView | 回退按钮的可点击区域 |
+| gobackImage | 回退按钮的图片 |
 
 ## 样例工程
 
@@ -204,7 +204,3 @@ NaviBarOptions.xxx = yyy;
 1. 在一个单独的终端中运行`npm start`。
 1. 使用`Xcode`或`Android Studio`打开`example/ios`或`example/android`中的工程。
 1. 运行工程。
-
-## 参考
-
-请参照这个仓库的说明: [react-native-items](https://github.com/gaoxiaosong/react-native-items/blob/master/README-zh_CN.md).

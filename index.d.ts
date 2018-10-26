@@ -3,23 +3,23 @@ import { ImageSourcePropType, StyleProp, TextStyle, ImageStyle, ViewStyle } from
 import { SafeAreaViewForceInsetValue } from 'react-navigation';
 
 export interface InnerStyle {
-    safeview?: StyleProp<ViewStyle>,
-    container?: StyleProp<ViewStyle>,
-    seperator?: StyleProp<ViewStyle>,
-    title?: StyleProp<TextStyle>,
-    titleContainer?: StyleProp<ViewStyle>,
-    titleCenterContainer?: StyleProp<ViewStyle>,
-    buttonView?: StyleProp<ViewStyle>,
-    buttonText?: StyleProp<TextStyle>,
-    leftView: StyleProp<ViewStyle>,
-    rightView: StyleProp<ViewStyle>,
-    gobackView: StyleProp<ViewStyle>,
-    gobackImage: StyleProp<ImageStyle>,
+    safeview?: StyleProp<ViewStyle>;
+    container?: StyleProp<ViewStyle>;
+    seperator?: StyleProp<ViewStyle>;
+    title?: StyleProp<TextStyle>;
+    titleContainer?: StyleProp<ViewStyle>;
+    titleCenterContainer?: StyleProp<ViewStyle>;
+    buttonView?: StyleProp<ViewStyle>;
+    buttonText?: StyleProp<TextStyle>;
+    leftView?: StyleProp<ViewStyle>;
+    rightView?: StyleProp<ViewStyle>;
+    gobackView?: StyleProp<ViewStyle>;
+    gobackImage?: StyleProp<ImageStyle>;
 }
 
-export type ButtonType = string | React.ReactElement<any>;
-export type ButtonsType = ButtonType | ButtonType[];
-export type ButtonFuncType = (index: number) => boolean | undefined;
+export type ButtonType = string | React.ReactElement;
+export type ButtonsType = ButtonType | Array<ButtonType>;
+export type ButtonFuncType = (index: number) => boolean | void;
 
 /**
  * Navigation bar height for different device type.
@@ -37,9 +37,9 @@ export const GOBACK_BUTTON: ButtonType;
 export const GOBACK_IMAGE: ImageSourcePropType;
 
 export interface NaviBarOptionType {
-    style: InnerStyle,
-    buttonWidth: number,
-    gobackImage: ImageSourcePropType,
+    style: InnerStyle;
+    buttonWidth: number;
+    gobackImage: ImageSourcePropType;
 }
 
 /**
@@ -57,18 +57,18 @@ export type SafeOptionType = {
 };
 
 export interface NaviBarProps {
-    title?: string | React.ReactElement<any>,
-    titleCenter?: boolean,
-    hasSeperatorLine?: boolean,
-    leftElement?: ButtonsType,
-    rightElement?: ButtonsType,
-    onLeft?: ButtonFuncType,
-    onRight?: ButtonFuncType,
-    autoCloseKeyboard?: boolean,
-    autoHardwareBack?: boolean,
-    lockEnabled?: boolean,
-    safeOptions?: SafeOptionType,
-    style?: InnerStyle,
+    title?: string | React.ReactElement<any>;
+    titleCenter?: boolean;
+    hasSeperatorLine?: boolean;
+    leftElement?: ButtonsType;
+    rightElement?: ButtonsType;
+    onLeft?: ButtonFuncType;
+    onRight?: ButtonFuncType;
+    autoCloseKeyboard?: boolean;
+    autoHardwareBack?: boolean;
+    lockEnabled?: boolean;
+    safeOptions?: SafeOptionType;
+    style?: InnerStyle;
 }
 
 export default class NaviBar extends React.PureComponent<NaviBarProps> {
