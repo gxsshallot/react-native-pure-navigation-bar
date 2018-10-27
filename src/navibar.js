@@ -227,7 +227,7 @@ export class InnerNaviBar extends React.PureComponent {
                 upperType = 'Right';
                 innerIndex = index - lefts.length;
             }
-            this._clickButton(upperType, element[index], innerIndex);
+            this._clickButton(upperType, lefts[index], innerIndex);
         }
         return true;
     };
