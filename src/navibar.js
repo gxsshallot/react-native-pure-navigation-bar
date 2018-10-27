@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, Image, Keyboard, StyleSheet, BackHandler, SafeAreaView, Dimensions } from 'react-native';
+import { View, Platform, Text, TouchableOpacity, Image, Keyboard, StyleSheet, BackHandler, SafeAreaView, Dimensions, StatusBar } from 'react-native';
 import { withNavigation } from 'react-navigation'
 import styles from './style';
 import { forceInset, getSafeAreaInset } from './safearea';
@@ -34,12 +34,16 @@ export class InnerNaviBar extends React.PureComponent {
     }
 
     componentDidMount() {
-        BackHandler.addEventListener('hardwareBackPress', this._clickBack);
+        if (Platform.OS === 'android') {
+            BackHandler.addEventListener('hardwareBackPress', this._clickBack);
+        }
         Dimensions.addEventListener('change', this._onWindowChanged);
     }
 
     componentWillUnmount() {
-        BackHandler.removeEventListener('hardwareBackPress', this._clickBack);
+        if (Platform.OS === 'android') {
+            BackHandler.removeEventListener('hardwareBackPress', this._clickBack);
+        }
         Dimensions.removeEventListener('change', this._onWindowChanged);
     }
 
@@ -62,8 +66,13 @@ export class InnerNaviBar extends React.PureComponent {
                 </View>
             );
         } else if (safeOptions) {
+            const safeArea = getSafeAreaInset(undefined, isTranslucent);
+            const translucentStyle = {};
+            if (Platform.OS === 'android' && safeOptions.top === 'always' && isTranslucent) {
+                translucentStyle.paddingTop = StatusBar.currentHeight;
+            }
             const style = [
-                ...this._combineStyle('safeView'),
+                ...this._combineStyle('safeView', translucentStyle),
                 ...seperatorLineStyle,
             ];
             return (
