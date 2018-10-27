@@ -1,6 +1,6 @@
 import React from 'react';
-import { AppRegistry, StyleSheet, Text, TouchableOpacity, SafeAreaView, View } from 'react-native';
-import NaviBar, { GOBACK_BUTTON } from 'react-native-pure-navigation-bar';
+import { AppRegistry, StyleSheet, Text, TouchableOpacity, SafeAreaView, View, ScrollView } from 'react-native';
+import NaviBar, { GOBACK_BUTTON, getSafeAreaInset, NAVBAR_HEIGHT } from 'react-native-pure-navigation-bar';
 import { createStackNavigator } from 'react-navigation';
 
 class WelcomePage extends React.Component {
@@ -52,6 +52,9 @@ class Example extends React.Component {
     };
 
     render() {
+        const style = this.state.isAbsolute ? {
+            paddingTop: getSafeAreaInset().top + NAVBAR_HEIGHT,
+        } : undefined;
         return (
             <View style={styles.container}>
                 <NaviBar
@@ -60,6 +63,8 @@ class Example extends React.Component {
                     hasSeperatorLine={this.state.seperator}
                     leftElement={this.state.leftElement}
                     rightElement={this.state.rightElement}
+                    isAbsolute={this.state.isAbsolute}
+                    gobackText={this.state.gobackText}
                     style={{
                         container: this.state.containerStyle,
                         title: this.state.titleStyle,
@@ -67,15 +72,22 @@ class Example extends React.Component {
                         rightView: this.state.rightStyle,
                     }}
                 />
-                {this._renderItem('title', 'TestPage', 'This a test page and title is very long', 'Make Title Longer', 'Make Title Shorter', item => item === 'TestPage')}
-                {this._renderItem('titleCenter', true, false, 'Make Title UnCenter', 'Make Title Center')}
-                {this._renderItem('seperator', true, false, 'Hide Seperator', 'Show Seperator')}
-                {this._renderItem('leftElement', [GOBACK_BUTTON, 'Close'], undefined, 'Make Left Empty', 'Make Left Full')}
-                {this._renderItem('rightElement', 'OK', undefined, 'Make Right Empty', 'Make Right Full')}
-                {this._renderItem('containerStyle', {backgroundColor: 'gray'}, undefined, 'Make Whole Normal', 'Make Whole Gray')}
-                {this._renderItem('titleStyle', {backgroundColor: 'green'}, undefined, 'Make Title Normal', 'Make Title Green')}
-                {this._renderItem('leftStyle', {backgroundColor: 'yellow'}, undefined, 'Make Left Normal', 'Make Left Yellow')}
-                {this._renderItem('rightStyle', {backgroundColor: 'red'}, undefined, 'Make Right Normal', 'Make Right Red')}
+                <ScrollView
+                    style={styles.scrollview}
+                    contentContainerStyle={style}
+                >
+                    {this._renderItem('isAbsolute', true, false, 'Make Normal', 'Make Absolute')}
+                    {this._renderItem('title', 'TestPage', 'This a test page and title is very long', 'Make Title Longer', 'Make Title Shorter', item => item === 'TestPage')}
+                    {this._renderItem('titleCenter', true, false, 'Make Title UnCenter', 'Make Title Center')}
+                    {this._renderItem('seperator', true, false, 'Hide Seperator', 'Show Seperator')}
+                    {this._renderItem('gobackText', '(123)', undefined, 'Make Goback Text Number', 'Make Goback Text None')}
+                    {this._renderItem('leftElement', [GOBACK_BUTTON, 'Close'], undefined, 'Make Left Empty', 'Make Left Full')}
+                    {this._renderItem('rightElement', ['OK', 'Hello'], undefined, 'Make Right Empty', 'Make Right Full')}
+                    {this._renderItem('containerStyle', {backgroundColor: 'gray'}, undefined, 'Make Whole Normal', 'Make Whole Gray')}
+                    {this._renderItem('titleStyle', {backgroundColor: 'green'}, undefined, 'Make Title Normal', 'Make Title Green')}
+                    {this._renderItem('leftStyle', {backgroundColor: 'yellow'}, undefined, 'Make Left Normal', 'Make Left Yellow')}
+                    {this._renderItem('rightStyle', {backgroundColor: 'red'}, undefined, 'Make Right Normal', 'Make Right Red')}
+                </ScrollView>
             </View>
         );
     }
@@ -85,6 +97,9 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: 'blue',
+    },
+    scrollview: {
+        flex: 1,
     },
     touch: {
         height: 44,

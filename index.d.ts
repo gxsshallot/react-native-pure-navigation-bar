@@ -2,74 +2,61 @@ import * as React from 'react';
 import { ImageSourcePropType, StyleProp, TextStyle, ImageStyle, ViewStyle } from 'react-native';
 import { SafeAreaViewForceInsetValue } from 'react-navigation';
 
-export interface InnerStyle {
-    safeview?: StyleProp<ViewStyle>;
-    container?: StyleProp<ViewStyle>;
-    seperator?: StyleProp<ViewStyle>;
-    title?: StyleProp<TextStyle>;
-    titleContainer?: StyleProp<ViewStyle>;
-    titleCenterContainer?: StyleProp<ViewStyle>;
-    buttonView?: StyleProp<ViewStyle>;
-    buttonText?: StyleProp<TextStyle>;
-    leftView?: StyleProp<ViewStyle>;
-    rightView?: StyleProp<ViewStyle>;
-    gobackView?: StyleProp<ViewStyle>;
-    gobackImage?: StyleProp<ImageStyle>;
-}
-
-export type ButtonType = string | React.ReactElement;
-export type ButtonsType = ButtonType | Array<ButtonType>;
-export type ButtonFuncType = (index: number) => boolean | void;
-
-/**
- * Navigation bar height for different device type.
- */
 export const NAVBAR_HEIGHT: number;
-
-/**
- * Goback button identifier.
- */
-export const GOBACK_BUTTON: ButtonType;
-
-/**
- * Goback button image.
- */
+export const GOBACK_BUTTON: string;
 export const GOBACK_IMAGE: ImageSourcePropType;
 
-export interface NaviBarOptionType {
-    style: InnerStyle;
-    buttonWidth: number;
-    gobackImage: ImageSourcePropType;
+interface SafeOptionsType {
+    top: SafeAreaViewForceInsetValue;
+    left: SafeAreaViewForceInsetValue;
+    bottom: SafeAreaViewForceInsetValue;
+    right: SafeAreaViewForceInsetValue;
 }
 
-/**
- * Navigation bar global options.
- */
-export const NaviBarOptions: NaviBarOptionType;
+interface SafeAreaInset {
+    top: number;
+    right: number;
+    bottom: number;
+    left: number;
+}
 
-export type SafeOptionType = {
-    top?: SafeAreaViewForceInsetValue;
-    bottom?: SafeAreaViewForceInsetValue;
-    left?: SafeAreaViewForceInsetValue;
-    right?: SafeAreaViewForceInsetValue;
-    horizontal?: SafeAreaViewForceInsetValue;
-    vertical?: SafeAreaViewForceInsetValue;
-};
+export function getSafeAreaInset(isLandscape?: boolean): SafeAreaInset;
+export function forceInset(top: number, right: number, bottom: number, left: number): SafeOptionsType;
+
+interface InnerStyle {
+    safeView?: StyleProp<ViewStyle>;
+    absoluteView?: StyleProp<ViewStyle>;
+    normalView?: StyleProp<ViewStyle>;
+    container?: StyleProp<ViewStyle>;
+    seperator?: StyleProp<ViewStyle>;
+    titleContainer?: StyleProp<ViewStyle>;
+    title?: StyleProp<TextStyle>;
+    leftView?: StyleProp<ViewStyle>;
+    rightView?: StyleProp<ViewStyle>;
+    buttonView?: StyleProp<ViewStyle>;
+    buttonText?: StyleProp<TextStyle>;
+    gobackView?: StyleProp<ViewStyle>;
+    gobackImage?: StyleProp<ImageStyle>;
+    gobackText?: StyleProp<TextStyle>;
+}
 
 export interface NaviBarProps {
-    title?: string | React.ReactElement<any>;
+    title?: string | number | React.ReactElement;
     titleCenter?: boolean;
     hasSeperatorLine?: boolean;
-    leftElement?: ButtonsType;
-    rightElement?: ButtonsType;
-    onLeft?: ButtonFuncType;
-    onRight?: ButtonFuncType;
+    leftElement?: string | number | React.ReactElement | Array<string | number | React.ReactElement>;
+    rightElement?: string | number | React.ReactElement | Array<string | number | React.ReactElement>;
+    onLeft?: (index: number) => boolean | void;
+    onRight?: (index: number) => boolean | void;
     autoCloseKeyboard?: boolean;
     autoHardwareBack?: boolean;
-    lockEnabled?: boolean;
-    safeOptions?: SafeOptionType;
+    disableLock?: boolean;
+    gobackImage?: ImageSourcePropType;
+    gobackText?: string;
+    isAbsolute?: boolean;
+    isTranslucent?: boolean;
+    safeOptions?: SafeOptionsType;
     style?: InnerStyle;
 }
 
-export default class NaviBar extends React.PureComponent<NaviBarProps> {
-}
+export default class NaviBar extends React.PureComponent<NaviBarProps> {};
