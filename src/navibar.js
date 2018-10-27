@@ -34,16 +34,12 @@ export class InnerNaviBar extends React.PureComponent {
     }
 
     componentDidMount() {
-        if (Platform.OS === 'android') {
-            BackHandler.addEventListener('hardwareBackPress', this._clickBack);
-        }
+        BackHandler.addEventListener('hardwareBackPress', this._clickBack);
         Dimensions.addEventListener('change', this._onWindowChanged);
     }
 
     componentWillUnmount() {
-        if (Platform.OS === 'android') {
-            BackHandler.removeEventListener('hardwareBackPress', this._clickBack);
-        }
+        BackHandler.removeEventListener('hardwareBackPress', this._clickBack);
         Dimensions.removeEventListener('change', this._onWindowChanged);
     }
 
