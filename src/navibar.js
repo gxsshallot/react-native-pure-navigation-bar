@@ -8,7 +8,7 @@ export const NAVBAR_HEIGHT = 44;
 export const GOBACK_BUTTON = '__gobackbutton__';
 export const GOBACK_IMAGE = require('./image/nav_back.png');
 
-class NaviBar extends React.PureComponent {
+export class InnerNaviBar extends React.PureComponent {
     static defaultProps = {
         title: '',
         titleCenter: true,
@@ -231,4 +231,4 @@ class NaviBar extends React.PureComponent {
     _canDisplay = (item) => typeof item === 'string' || typeof item === 'number';
 }
 
-export default withNavigation(NaviBar);
+export default withNavigation(InnerNaviBar);

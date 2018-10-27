@@ -59,4 +59,5 @@ export interface NaviBarProps {
     style?: InnerStyle;
 }
 
+export class InnerNaviBar extends React.PureComponent<NaviBarProps> {};
 export default class NaviBar extends React.PureComponent<NaviBarProps> {};

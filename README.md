@@ -1,5 +1,7 @@
 # react-native-pure-navigation-bar
 
+[![npm version](https://img.shields.io/npm/v/react-native-pure-navigation-bar.svg?style=flat)](https://www.npmjs.com/package/react-native-pure-navigation-bar)
+
 Here is a fully customizable navigation bar in React-Native. You can set the global unified style of navigation bar and add it as a react component in each page.
 
 It supports:
@@ -104,8 +106,10 @@ You can change the navigation bar settings at the startup, include navigation ba
 You can set options like this:
 
 ```jsx
-NaviBar.defaultProps.isTranslucent = true;
-NaviBar.defaultProps.style.titleContainer = {...};
+import {InnerNaviBar} from 'react-native-pure-navigation-bar';
+
+InnerNaviBar.defaultProps.isTranslucent = true;
+InnerNaviBar.defaultProps.style.titleContainer = {...};
 ```
 
 ## Custom Setting
@@ -138,7 +142,7 @@ You can see `index.d.ts` for their types and `src/index.js` for their default va
 The component style is consist of three part:
 
 * User custom style, passed by component props, is highest level.
-* Global setting style, set with `defaultProps` in `NaviBar`, is medium level, can be override by User custom style.
+* Global setting style, set with `defaultProps` in `InnerNaviBar`, is medium level, can be override by User custom style.
 * Inner style, written in `src/style.js`, is lowest level, can be overrided by the two styles above.
 
 All the key you can customize in Global or Custom settings list below:
