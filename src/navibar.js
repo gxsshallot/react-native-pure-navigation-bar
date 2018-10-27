@@ -25,6 +25,8 @@ export class InnerNaviBar extends React.PureComponent {
     constructor(props) {
         super(props);
         this.locks = {};
+        this.leftKey = 0;
+        this.rightKey = 0;
         this.state = {
             left: null,
             right: null,
@@ -123,6 +125,10 @@ export class InnerNaviBar extends React.PureComponent {
     _renderButtons = (upperType, edge) => {
         const lowerType = upperType.toLowerCase();
         const elementProps = this.props[lowerType + 'Element'];
+        if (this[lowerType] !== elementProps) {
+            this[lowerType] = elementProps;
+            this[lowerType + 'Key'] += 1;
+        }
         let element = [];
         if (elementProps) {
             element = Array.isArray(elementProps) ? elementProps : [elementProps]
@@ -130,7 +136,7 @@ export class InnerNaviBar extends React.PureComponent {
         const viewStyleKey = lowerType + 'View';
         return (
             <View
-                key={JSON.stringify(elementProps)}
+                key={lowerType + this[lowerType + 'Key']}
                 onLayout={this._onButtonsLayoutChanged.bind(this, lowerType)}
                 style={this._combineStyle(viewStyleKey, {minWidth: edge})}
             >
