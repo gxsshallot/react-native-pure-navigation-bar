@@ -34,16 +34,12 @@ export class InnerNaviBar extends React.PureComponent {
     }
 
     componentDidMount() {
-        if (Platform.OS === 'android') {
-            BackHandler.addEventListener('hardwareBackPress', this._clickBack);
-        }
+        BackHandler.addEventListener('hardwareBackPress', this._clickBack);
         Dimensions.addEventListener('change', this._onWindowChanged);
     }
 
     componentWillUnmount() {
-        if (Platform.OS === 'android') {
-            BackHandler.removeEventListener('hardwareBackPress', this._clickBack);
-        }
+        BackHandler.removeEventListener('hardwareBackPress', this._clickBack);
         Dimensions.removeEventListener('change', this._onWindowChanged);
     }
 
@@ -219,15 +215,11 @@ export class InnerNaviBar extends React.PureComponent {
         const rights = Array.isArray(rightElement) ? rightElement : [rightElement];
         const index = [...lefts, ...rights].findIndex(item => item === GOBACK_BUTTON);
         if (index >= 0) {
-            let innerIndex, upperType;
             if (index < lefts.length) {
-                upperType = 'Left';
-                innerIndex = index;
+                this._clickButton('Left', lefts[index], index);
             } else {
-                upperType = 'Right';
-                innerIndex = index - lefts.length;
+                this._clickButton('Right', rights[index - lefts.length], index - lefts.length);
             }
-            this._clickButton(upperType, lefts[index], innerIndex);
         }
         return true;
     };
