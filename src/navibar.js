@@ -188,7 +188,7 @@ export class InnerNaviBar extends React.PureComponent {
     };
 
     _onWindowChanged = () => {
-        this.props.isAbsolute && this.forceUpdate();
+        this.forceUpdate();
     };
 
     _clickButton = (upperType, item, index) => {
