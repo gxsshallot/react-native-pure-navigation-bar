@@ -93,7 +93,7 @@ render() {
 
 | Name | Description |
 | :-: | :-: |
-| NAVBAR_HEIGHT | Default navigation bar height |
+| DEFAULT_NAVBAR_HEIGHT | Default navigation bar height |
 | GOBACK_BUTTON | An identifier when you set 'leftElement' or 'rightElement' to identify the button as GoBack button |
 | GOBACK_IMAGE | An default image for GOBACK_BUTTON |
 | forceInset | A function to generate `forceInset` options easilly |
@@ -133,6 +133,7 @@ You can control the action or style of navigation bar by passing 'props'.
 | isAbsolute | Enable absolute style or not |
 | isTranslucent | Translucent mode in Android |
 | safeOptions | Safe area option of navigation bar. Use 'false' to disable |
+| navbarHeight | Navigation bar height. Default is `DEFAULT_NAVBAR_HEIGHT` |
 | style | A custom style which has highest priority, object's key is in following 'Style' section |
 
 You can see `index.d.ts` for their types and `src/index.js` for their default values.

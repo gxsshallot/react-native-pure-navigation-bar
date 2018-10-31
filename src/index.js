@@ -1,11 +1,11 @@
-import NaviBar, { InnerNaviBar, NAVBAR_HEIGHT, GOBACK_BUTTON, GOBACK_IMAGE } from './navibar';
+import NaviBar, { InnerNaviBar, DEFAULT_NAVBAR_HEIGHT, GOBACK_BUTTON, GOBACK_IMAGE } from './navibar';
 import { getSafeAreaInset, forceInset } from './safearea';
 
 export default NaviBar;
 
 export {
     InnerNaviBar,
-    NAVBAR_HEIGHT,
+    DEFAULT_NAVBAR_HEIGHT,
     GOBACK_BUTTON,
     GOBACK_IMAGE,
     getSafeAreaInset,

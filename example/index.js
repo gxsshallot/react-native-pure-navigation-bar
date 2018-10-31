@@ -1,6 +1,6 @@
 import React from 'react';
 import { AppRegistry, StyleSheet, Text, TouchableOpacity, SafeAreaView, View, ScrollView } from 'react-native';
-import NaviBar, { GOBACK_BUTTON, getSafeAreaInset, NAVBAR_HEIGHT } from 'react-native-pure-navigation-bar';
+import NaviBar, { GOBACK_BUTTON, getSafeAreaInset, DEFAULT_NAVBAR_HEIGHT } from 'react-native-pure-navigation-bar';
 import { createStackNavigator } from 'react-navigation';
 
 class WelcomePage extends React.Component {
@@ -53,7 +53,7 @@ class Example extends React.Component {
 
     render() {
         const style = this.state.isAbsolute ? {
-            paddingTop: getSafeAreaInset().top + NAVBAR_HEIGHT,
+            paddingTop: getSafeAreaInset().top + DEFAULT_NAVBAR_HEIGHT,
         } : undefined;
         return (
             <View style={styles.container}>

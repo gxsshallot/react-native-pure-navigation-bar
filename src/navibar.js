@@ -4,7 +4,7 @@ import { withNavigation } from 'react-navigation'
 import styles from './style';
 import { forceInset, getSafeAreaInset } from './safearea';
 
-export const NAVBAR_HEIGHT = 44;
+export const DEFAULT_NAVBAR_HEIGHT = 44;
 export const GOBACK_BUTTON = '__gobackbutton__';
 export const GOBACK_IMAGE = require('./image/nav_back.png');
 
@@ -19,6 +19,7 @@ export class InnerNaviBar extends React.PureComponent {
         autoHardwareBack: true,
         gobackImage: GOBACK_IMAGE,
         safeOptions: forceInset(1, 1, 0, 1),
+        navbarHeight: DEFAULT_NAVBAR_HEIGHT,
         style: {},
     };
 
@@ -66,7 +67,7 @@ export class InnerNaviBar extends React.PureComponent {
                     paddingLeft: func('left'),
                     paddingRight: func('right'),
                     paddingBottom: func('bottom'),
-                    height: func('top') + NAVBAR_HEIGHT,
+                    height: func('top') + this.props.navbarHeight,
                 }),
                 ...seperatorLineStyle,
             ];
@@ -98,7 +99,7 @@ export class InnerNaviBar extends React.PureComponent {
             edge = undefined;
         }
         return (
-            <View style={this._combineStyle('container', {height: NAVBAR_HEIGHT})}>
+            <View style={this._combineStyle('container', {height: this.props.navbarHeight})}>
                 {this._renderButtons('Left', edge)}
                 <View style={this._combineStyle('titleContainer')}>
                     {this._renderTitleView()}
@@ -147,7 +148,7 @@ export class InnerNaviBar extends React.PureComponent {
     _renderButton = (upperType, item, index) => {
         const func = this._clickButton.bind(this, upperType, item, index);
         const specStyle = {
-            height: NAVBAR_HEIGHT,
+            height: this.props.navbarHeight,
         };
         const button = item === GOBACK_BUTTON ? (
             <View style={this._combineStyle('gobackView', specStyle)}>
