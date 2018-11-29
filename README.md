@@ -2,6 +2,8 @@
 
 [![npm version](https://img.shields.io/npm/v/react-native-pure-navigation-bar.svg?style=flat)](https://www.npmjs.com/package/react-native-pure-navigation-bar)
 
+[中文说明](https://www.jianshu.com/p/d805e022c236)
+
 Here is a fully customizable navigation bar in React-Native. You can set the global unified style of navigation bar and add it as a react component in each page.
 
 It supports:
