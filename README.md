@@ -1,6 +1,7 @@
 # react-native-pure-navigation-bar
 
 [![npm version](https://img.shields.io/npm/v/react-native-pure-navigation-bar.svg?style=flat)](https://www.npmjs.com/package/react-native-pure-navigation-bar)
+[![Build Status](https://travis-ci.org/gaoxiaosong/react-native-pure-navigation-bar.svg?branch=master)](https://travis-ci.org/gaoxiaosong/react-native-pure-navigation-bar)
 
 [中文说明](https://www.jianshu.com/p/d805e022c236)
 
