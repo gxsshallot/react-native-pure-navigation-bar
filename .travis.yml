@@ -1,0 +1,18 @@
+language: node_js
+node_js:
+ - "10"
+os:
+ - linux
+
+stages:
+ - name: deploy
+
+jobs:
+ include:
+   - stage: deploy
+     deploy:
+       provider: npm
+       email: gaoxiaosong06@gmail.com
+       api_key: "$NPM_TOKEN"
+       on:
+         tags: true
