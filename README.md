@@ -168,6 +168,10 @@ All the key you can customize in Global or Custom settings list below:
 | gobackImage | Goback button image |
 | gobackText | Goback button text |
 
+## FAQ
+
+You can see [Wiki](https://github.com/gaoxiaosong/react-native-pure-navigation-bar/wiki/) for questions. And if not found, you can commit a issue to me.
+
 ## Example Project
 
 You can open the example project by following steps:
