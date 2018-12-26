@@ -221,8 +221,9 @@ export class InnerNaviBar extends React.PureComponent {
             } else {
                 this._clickButton('Right', rights[index - lefts.length], index - lefts.length);
             }
+            return true;
         }
-        return true;
+        return false;
     };
 
     _combineStyle = (key, innerStyle = undefined) => {
