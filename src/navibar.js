@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Platform, Text, TouchableOpacity, Image, Keyboard, StyleSheet, BackHandler, Dimensions, StatusBar } from 'react-native';
-import { withNavigation } from 'react-navigation'
+import { useNavigation } from '@react-navigation/native'
 import styles from './style';
 import { forceInset, getSafeAreaInset } from './safearea';
 
@@ -43,8 +43,8 @@ export class InnerNaviBar extends React.PureComponent {
     }
 
     componentWillUnmount() {
-        this._didFocusSubscription && this._didFocusSubscription.remove();
-        this._willBlurSubscription && this._willBlurSubscription.remove();
+        this._didFocusSubscription && this._didFocusSubscription();
+        this._willBlurSubscription && this._willBlurSubscription();
         Dimensions.removeEventListener('change', this._onWindowChanged);
     }
 
@@ -238,4 +238,7 @@ export class InnerNaviBar extends React.PureComponent {
     _canDisplay = (item) => typeof item === 'string' || typeof item === 'number';
 }
 
-export default withNavigation(InnerNaviBar);
+export default function(props){
+    const navigation = useNavigation()
+    return <InnerNaviBar {...props} navigation={navigation}/>
+};
